@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es--ve">
+<!--Aarón Bastardo-->
+<!--NOTE TO SELF. TAKE INSPIRATION FROM DESIGN AND CODE FROM SHOWDOWN-->
+<!--2-5 lunes y martes consulta-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Test Aarón Bastardo - Batalla Naval</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><input type="text"></li>
+                <li><button>Ingresar</button></li>
+                <li><button>Jugar</button></li>
+                <li><a href="#inst">Instrucciones</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="game">
+            <!--you want to render main before aside-->
+            <!--una pagina puede tener subsecciones dentro de las secciones preexistentes-->
+            <main>
+                <!--cada casilla de las tablas es un objeto, tiene comportamiento propio. html puro es div. Con css es más sencillo, prox class. diseño tabla, estructura objetos-->
+                <!-- tabla visualiza datos, no es reactiva -->
+                <!-- <caption>Juego</caption> TABLAS. Importante para funciones de accesibilidad como las alt in img-->
+                <section class="players_board">
+                    <div class="cA1"></div>
+                    <div class="cA2"></div>
+                    <div class="cA3"></div>
+                    <div class="cA4"></div>
+                    <div class="cA5"></div>
+                    <div class="cA6"></div>
+                    <div class="cA7"></div>
+                    <div class="cA8"></div>
+                    <div class="cA9"></div>
+                    <div class="cA10"></div>
+                    <div class="cB1"></div>
+                    <div class="cB2"></div>
+                    <div class="cB3"></div>
+                    <div class="cB4"></div>
+                    <div class="cB5"></div>
+                    <div class="cB6"></div>
+                    <div class="cB7"></div>
+                    <div class="cB8"></div>
+                    <div class="cB9"></div>
+                    <div class="cB10"></div>
+                    <div class="cC1"></div>
+                    <div class="cC2"></div>
+                    <div class="cC3"></div>
+                    <div class="cC4"></div>
+                    <div class="cC5"></div>
+                    <div class="cC6"></div>
+                    <div class="cC7"></div>
+                    <div class="cC8"></div>
+                    <div class="cC9"></div>
+                    <div class="cC10"></div>
+                    <div class="cD1"></div>
+                    <div class="cD2"></div>
+                    <div class="cD3"></div>
+                    <div class="cD4"></div>
+                    <div class="cD5"></div>
+                    <div class="cD6"></div>
+                    <div class="cD7"></div>
+                    <div class="cD8"></div>
+                    <div class="cD9"></div>
+                    <div class="cD10"></div>
+                    <div class="cE1"></div>
+                    <div class="cE2"></div>
+                    <div class="cE3"></div>
+                    <div class="cE4"></div>
+                    <div class="cE5"></div>
+                    <div class="cE6"></div>
+                    <div class="cE7"></div>
+                    <div class="cE8"></div>
+                    <div class="cE9"></div>
+                    <div class="cE10"></div>
+                    <div class="cF1"></div>
+                    <div class="cF2"></div>
+                    <div class="cF3"></div>
+                    <div class="cF4"></div>
+                    <div class="cF5"></div>
+                    <div class="cF6"></div>
+                    <div class="cF7"></div>
+                    <div class="cF8"></div>
+                    <div class="cF9"></div>
+                    <div class="cF10"></div>
+                    <div class="cG1"></div>
+                    <div class="cG2"></div>
+                    <div class="cG3"></div>
+                    <div class="cG4"></div>
+                    <div class="cG5"></div>
+                    <div class="cG6"></div>
+                    <div class="cG7"></div>
+                    <div class="cG8"></div>
+                    <div class="cG9"></div>
+                    <div class="cG10"></div>
+                    <div class="cH1"></div>
+                    <div class="cH2"></div>
+                    <div class="cH3"></div>
+                    <div class="cH4"></div>
+                    <div class="cH5"></div>
+                    <div class="cH6"></div>
+                    <div class="cH7"></div>
+                    <div class="cH8"></div>
+                    <div class="cH9"></div>
+                    <div class="cH10"></div>
+                    <div class="cI1"></div>
+                    <div class="cI2"></div>
+                    <div class="cI3"></div>
+                    <div class="cI4"></div>
+                    <div class="cI5"></div>
+                    <div class="cI6"></div>
+                    <div class="cI7"></div>
+                    <div class="cI8"></div>
+                    <div class="cI9"></div>
+                    <div class="cI10"></div>
+                    <div class="cJ1"></div>
+                    <div class="cJ2"></div>
+                    <div class="cJ3"></div>
+                    <div class="cJ4"></div>
+                    <div class="cJ5"></div>
+                    <div class="cJ6"></div>
+                    <div class="cJ7"></div>
+                    <div class="cJ8"></div>
+                    <div class="cJ9"></div>
+                    <div class="cJ10"></div>
+                </section>
+                <section class="opponents_board">
+                    <div class="casilla_A">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_B">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_C">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_D">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_E">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_F">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_G">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_H">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_I">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+                    <div class="casilla_J">
+                        <div id="1"></div>
+                        <div id="2"></div>
+                        <div id="3"></div>
+                        <div id="4"></div>
+                        <div id="5"></div>
+                        <div id="6"></div>
+                        <div id="7"></div>
+                        <div id="8"></div>
+                        <div id="9"></div>
+                        <div id="10"></div>
+                    </div>
+
+                </section>
+            </main>
+            <aside>
+                <ul>
+                    <li>Portaaviones</li>
+                    <li>Acorazado</li>
+                    <li>Crucero</li>
+                    <li>Submarino</li>
+                    <li>Destructor</li>
+                </ul>
+            </aside>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+
+</html>
