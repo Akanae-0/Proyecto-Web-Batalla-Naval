@@ -14,8 +14,8 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><input type="text"></li>
+            <ul class="Barra_Superior">
+                <li><input type="text"></li> <!--Username-->
                 <li><button>Ingresar</button></li>
                 <li><button>Jugar</button></li>
                 <li><a href="#inst">Instrucciones</a></li>
@@ -30,249 +30,249 @@
                 <!--cada casilla de las tablas es un objeto, tiene comportamiento propio. html puro es div. Con css es más sencillo, prox class. diseño tabla, estructura objetos-->
                 <!-- tabla visualiza datos, no es reactiva -->
                 <!-- <caption>Juego</caption> TABLAS. Importante para funciones de accesibilidad como las alt in img-->
-                <section class="casillas">
+                <section class="tableros">
                     <section class="players_board">
-                        <div class="columna_A">
-                            <div class="Fila_1", id="CasillaA1Player"></div>
-                            <div class="Fila_2", id="CasillaA2Player"></div>
-                            <div class="Fila_3", id="CasillaA3Player"></div>
-                            <div class="Fila_4", id="CasillaA4Player"></div>
-                            <div class="Fila_5", id="CasillaA5Player"></div>
-                            <div class="Fila_6", id="CasillaA6Player"></div>
-                            <div class="Fila_7", id="CasillaA7Player"></div>
-                            <div class="Fila_8", id="CasillaA8Player"></div>
-                            <div class="Fila_9", id="CasillaA9Player"></div>
-                            <div class="Fila_10", id="CasillaA10Player"></div>
+                        <div class="columna columna_A">
+                            <div class="casilla fila_1", id="CasillaA1Player">A1</div>
+                            <div class="casilla fila_2", id="CasillaA2Player"></div>
+                            <div class="casilla fila_3", id="CasillaA3Player"></div>
+                            <div class="casilla fila_4", id="CasillaA4Player"></div>
+                            <div class="casilla fila_5", id="CasillaA5Player"></div>
+                            <div class="casilla fila_6", id="CasillaA6Player"></div>
+                            <div class="casilla fila_7", id="CasillaA7Player"></div>
+                            <div class="casilla fila_8", id="CasillaA8Player"></div>
+                            <div class="casilla fila_9", id="CasillaA9Player"></div>
+                            <div class="casilla fila_10", id="CasillaA10Player"></div>
                         </div>
-                        <div class="columna_B">
-                            <div class="Fila_1", id="CasillaB1Player"></div>
-                            <div class="Fila_2", id="CasillaB2Player"></div>
-                            <div class="Fila_3", id="CasillaB3Player"></div>
-                            <div class="Fila_4", id="CasillaB4Player"></div>
-                            <div class="Fila_5", id="CasillaB5Player"></div>
-                            <div class="Fila_6", id="CasillaB6Player"></div>
-                            <div class="Fila_7", id="CasillaB7Player"></div>
-                            <div class="Fila_8", id="CasillaB8Player"></div>
-                            <div class="Fila_9", id="CasillaB9Player"></div>
-                            <div class="Fila_10", id="CasillaB10Player"></div>
+                        <div class="columna columna_B">
+                            <div class="casilla fila_1", id="CasillaB1Player"></div>
+                            <div class="casilla fila_2", id="CasillaB2Player"></div>
+                            <div class="casilla fila_3", id="CasillaB3Player"></div>
+                            <div class="casilla fila_4", id="CasillaB4Player"></div>
+                            <div class="casilla fila_5", id="CasillaB5Player"></div>
+                            <div class="casilla fila_6", id="CasillaB6Player"></div>
+                            <div class="casilla fila_7", id="CasillaB7Player"></div>
+                            <div class="casilla fila_8", id="CasillaB8Player"></div>
+                            <div class="casilla fila_9", id="CasillaB9Player"></div>
+                            <div class="casilla fila_10", id="CasillaB10Player"></div>
                         </div>
-                        <div class="columna_C">
-                            <div class="Fila_1", id="CasillaC1Player"></div>
-                            <div class="Fila_2", id="CasillaC2Player"></div>
-                            <div class="Fila_3", id="CasillaC3Player"></div>
-                            <div class="Fila_4", id="CasillaC4Player"></div>
-                            <div class="Fila_5", id="CasillaC5Player"></div>
-                            <div class="Fila_6", id="CasillaC6Player"></div>
-                            <div class="Fila_7", id="CasillaC7Player"></div>
-                            <div class="Fila_8", id="CasillaC8Player"></div>
-                            <div class="Fila_9", id="CasillaC9Player"></div>
-                            <div class="Fila_10", id="CasillaC10Player"></div>
+                        <div class="columna columna_C">
+                            <div class="casilla fila_1", id="CasillaC1Player"></div>
+                            <div class="casilla fila_2", id="CasillaC2Player"></div>
+                            <div class="casilla fila_3", id="CasillaC3Player">C3</div>
+                            <div class="casilla fila_4", id="CasillaC4Player"></div>
+                            <div class="casilla fila_5", id="CasillaC5Player"></div>
+                            <div class="casilla fila_6", id="CasillaC6Player"></div>
+                            <div class="casilla fila_7", id="CasillaC7Player"></div>
+                            <div class="casilla fila_8", id="CasillaC8Player"></div>
+                            <div class="casilla fila_9", id="CasillaC9Player"></div>
+                            <div class="casilla fila_10", id="CasillaC10Player"></div>
                         </div>
-                        <div class="columna_D">
-                            <div class="Fila_1", id="CasillaD1Player"></div>
-                            <div class="Fila_2", id="CasillaD2Player"></div>
-                            <div class="Fila_3", id="CasillaD3Player"></div>
-                            <div class="Fila_4", id="CasillaD4Player"></div>
-                            <div class="Fila_5", id="CasillaD5Player"></div>
-                            <div class="Fila_6", id="CasillaD6Player"></div>
-                            <div class="Fila_7", id="CasillaD7Player"></div>
-                            <div class="Fila_8", id="CasillaD8Player"></div>
-                            <div class="Fila_9", id="CasillaD9Player"></div>
-                            <div class="Fila_10", id="CasillaD10Player"></div>
+                        <div class="columna columna_D">
+                            <div class="casilla fila_1", id="CasillaD1Player"></div>
+                            <div class="casilla fila_2", id="CasillaD2Player"></div>
+                            <div class="casilla fila_3", id="CasillaD3Player"></div>
+                            <div class="casilla fila_4", id="CasillaD4Player"></div>
+                            <div class="casilla fila_5", id="CasillaD5Player"></div>
+                            <div class="casilla fila_6", id="CasillaD6Player"></div>
+                            <div class="casilla fila_7", id="CasillaD7Player"></div>
+                            <div class="casilla fila_8", id="CasillaD8Player"></div>
+                            <div class="casilla fila_9", id="CasillaD9Player"></div>
+                            <div class="casilla fila_10", id="CasillaD10Player"></div>
                         </div>
-                        <div class="columna_E">
-                            <div class="Fila_1", id="CasillaE1Player"></div>
-                            <div class="Fila_2", id="CasillaE2Player"></div>
-                            <div class="Fila_3", id="CasillaE3Player"></div>
-                            <div class="Fila_4", id="CasillaE4Player"></div>
-                            <div class="Fila_5", id="CasillaE5Player"></div>
-                            <div class="Fila_6", id="CasillaE6Player"></div>
-                            <div class="Fila_7", id="CasillaE7Player"></div>
-                            <div class="Fila_8", id="CasillaE8Player"></div>
-                            <div class="Fila_9", id="CasillaE9Player"></div>
-                            <div class="Fila_10", id="CasillaE10Player"></div>
+                        <div class="columna columna_E">
+                            <div class="casilla fila_1", id="CasillaE1Player"></div>
+                            <div class="casilla fila_2", id="CasillaE2Player"></div>
+                            <div class="casilla fila_3", id="CasillaE3Player"></div>
+                            <div class="casilla fila_4", id="CasillaE4Player"></div>
+                            <div class="casilla fila_5", id="CasillaE5Player"></div>
+                            <div class="casilla fila_6", id="CasillaE6Player"></div>
+                            <div class="casilla fila_7", id="CasillaE7Player"></div>
+                            <div class="casilla fila_8", id="CasillaE8Player"></div>
+                            <div class="casilla fila_9", id="CasillaE9Player"></div>
+                            <div class="casilla fila_10", id="CasillaE10Player"></div>
                         </div>
-                        <div class="columna_F">
-                            <div class="Fila_1", id="CasillaF1Player"></div>
-                            <div class="Fila_2", id="CasillaF2Player"></div>
-                            <div class="Fila_3", id="CasillaF3Player"></div>
-                            <div class="Fila_4", id="CasillaF4Player"></div>
-                            <div class="Fila_5", id="CasillaF5Player"></div>
-                            <div class="Fila_6", id="CasillaF6Player"></div>
-                            <div class="Fila_7", id="CasillaF7Player"></div>
-                            <div class="Fila_8", id="CasillaF8Player"></div>
-                            <div class="Fila_9", id="CasillaF9Player"></div>
-                            <div class="Fila_10", id="CasillaF10Player"></div>
+                        <div class="columna columna_F">
+                            <div class="casilla fila_1", id="CasillaF1Player"></div>
+                            <div class="casilla fila_2", id="CasillaF2Player"></div>
+                            <div class="casilla fila_3", id="CasillaF3Player"></div>
+                            <div class="casilla fila_4", id="CasillaF4Player"></div>
+                            <div class="casilla fila_5", id="CasillaF5Player"></div>
+                            <div class="casilla fila_6", id="CasillaF6Player"></div>
+                            <div class="casilla fila_7", id="CasillaF7Player"></div>
+                            <div class="casilla fila_8", id="CasillaF8Player"></div>
+                            <div class="casilla fila_9", id="CasillaF9Player"></div>
+                            <div class="casilla fila_10", id="CasillaF10Player"></div>
                         </div>
-                        <div class="columna_G">
-                            <div class="Fila_1", id="CasillaG1Player"></div>
-                            <div class="Fila_2", id="CasillaG2Player"></div>
-                            <div class="Fila_3", id="CasillaG3Player"></div>
-                            <div class="Fila_4", id="CasillaG4Player"></div>
-                            <div class="Fila_5", id="CasillaG5Player"></div>
-                            <div class="Fila_6", id="CasillaG6Player"></div>
-                            <div class="Fila_7", id="CasillaG7Player"></div>
-                            <div class="Fila_8", id="CasillaG8Player"></div>
-                            <div class="Fila_9", id="CasillaG9Player"></div>
-                            <div class="Fila_10", id="CasillaG10Player"></div>
+                        <div class="columna columna_G">
+                            <div class="casilla fila_1", id="CasillaG1Player"></div>
+                            <div class="casilla fila_2", id="CasillaG2Player"></div>
+                            <div class="casilla fila_3", id="CasillaG3Player"></div>
+                            <div class="casilla fila_4", id="CasillaG4Player"></div>
+                            <div class="casilla fila_5", id="CasillaG5Player"></div>
+                            <div class="casilla fila_6", id="CasillaG6Player"></div>
+                            <div class="casilla fila_7", id="CasillaG7Player"></div>
+                            <div class="casilla fila_8", id="CasillaG8Player"></div>
+                            <div class="casilla fila_9", id="CasillaG9Player"></div>
+                            <div class="casilla fila_10", id="CasillaG10Player"></div>
                         </div>
-                        <div class="columna_H">
-                            <div class="Fila_1", id="CasillaH1Player"></div>
-                            <div class="Fila_2", id="CasillaH2Player"></div>
-                            <div class="Fila_3", id="CasillaH3Player"></div>
-                            <div class="Fila_4", id="CasillaH4Player"></div>
-                            <div class="Fila_5", id="CasillaH5Player"></div>
-                            <div class="Fila_6", id="CasillaH6Player"></div>
-                            <div class="Fila_7", id="CasillaH7Player"></div>
-                            <div class="Fila_8", id="CasillaH8Player"></div>
-                            <div class="Fila_9", id="CasillaH9Player"></div>
-                            <div class="Fila_10", id="CasillaH10Player"></div>
+                        <div class="columna columna_H">
+                            <div class="casilla fila_1", id="CasillaH1Player"></div>
+                            <div class="casilla fila_2", id="CasillaH2Player"></div>
+                            <div class="casilla fila_3", id="CasillaH3Player"></div>
+                            <div class="casilla fila_4", id="CasillaH4Player"></div>
+                            <div class="casilla fila_5", id="CasillaH5Player"></div>
+                            <div class="casilla fila_6", id="CasillaH6Player"></div>
+                            <div class="casilla fila_7", id="CasillaH7Player"></div>
+                            <div class="casilla fila_8", id="CasillaH8Player"></div>
+                            <div class="casilla fila_9", id="CasillaH9Player"></div>
+                            <div class="casilla fila_10", id="CasillaH10Player"></div>
                         </div>
-                        <div class="columna_I">
-                            <div class="Fila_1", id="CasillaI1Player"></div>
-                            <div class="Fila_2", id="CasillaI2Player"></div>
-                            <div class="Fila_3", id="CasillaI3Player"></div>
-                            <div class="Fila_4", id="CasillaI4Player"></div>
-                            <div class="Fila_5", id="CasillaI5Player"></div>
-                            <div class="Fila_6", id="CasillaI6Player"></div>
-                            <div class="Fila_7", id="CasillaI7Player"></div>
-                            <div class="Fila_8", id="CasillaI8Player"></div>
-                            <div class="Fila_9", id="CasillaI9Player"></div>
-                            <div class="Fila_10", id="CasillaI10Player"></div>
+                        <div class="columna columna_I">
+                            <div class="casilla fila_1", id="CasillaI1Player"></div>
+                            <div class="casilla fila_2", id="CasillaI2Player"></div>
+                            <div class="casilla fila_3", id="CasillaI3Player"></div>
+                            <div class="casilla fila_4", id="CasillaI4Player"></div>
+                            <div class="casilla fila_5", id="CasillaI5Player"></div>
+                            <div class="casilla fila_6", id="CasillaI6Player"></div>
+                            <div class="casilla fila_7", id="CasillaI7Player"></div>
+                            <div class="casilla fila_8", id="CasillaI8Player"></div>
+                            <div class="casilla fila_9", id="CasillaI9Player"></div>
+                            <div class="casilla fila_10", id="CasillaI10Player"></div>
                         </div>
-                        <div class="columna_J">
-                            <div class="Fila_1", id="CasillaJ1Player"></div>
-                            <div class="Fila_2", id="CasillaJ2Player"></div>
-                            <div class="Fila_3", id="CasillaJ3Player"></div>
-                            <div class="Fila_4", id="CasillaJ4Player"></div>
-                            <div class="Fila_5", id="CasillaJ5Player"></div>
-                            <div class="Fila_6", id="CasillaJ6Player"></div>
-                            <div class="Fila_7", id="CasillaJ7Player"></div>
-                            <div class="Fila_8", id="CasillaJ8Player"></div>
-                            <div class="Fila_9", id="CasillaJ9Player"></div>
-                            <div class="Fila_10", id="CasillaJ10Player"></div>
+                        <div class="columna columna_J">
+                            <div class="casilla fila_1", id="CasillaJ1Player"></div>
+                            <div class="casilla fila_2", id="CasillaJ2Player"></div>
+                            <div class="casilla fila_3", id="CasillaJ3Player"></div>
+                            <div class="casilla fila_4", id="CasillaJ4Player"></div>
+                            <div class="casilla fila_5", id="CasillaJ5Player"></div>
+                            <div class="casilla fila_6", id="CasillaJ6Player"></div>
+                            <div class="casilla fila_7", id="CasillaJ7Player"></div>
+                            <div class="casilla fila_8", id="CasillaJ8Player"></div>
+                            <div class="casilla fila_9", id="CasillaJ9Player"></div>
+                            <div class="casilla fila_10", id="CasillaJ10Player"></div>
                         </div>
                     </section>
                     <section class="opponents_board">
-                        <div class="columna_A">
-                            <div class="Fila_1", id="CasillaA1Opponent"></div>
-                            <div class="Fila_2", id="CasillaA2Opponent"></div>
-                            <div class="Fila_3", id="CasillaA3Opponent"></div>
-                            <div class="Fila_4", id="CasillaA4Opponent"></div>
-                            <div class="Fila_5", id="CasillaA5Opponent"></div>
-                            <div class="Fila_6", id="CasillaA6Opponent"></div>
-                            <div class="Fila_7", id="CasillaA7Opponent"></div>
-                            <div class="Fila_8", id="CasillaA8Opponent"></div>
-                            <div class="Fila_9", id="CasillaA9Opponent"></div>
-                            <div class="Fila_10", id="CasillaA10Opponent"></div>
+                        <div class="columna columna_A">
+                            <div class="casilla fila_1", id="CasillaA1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaA2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaA3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaA4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaA5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaA6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaA7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaA8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaA9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaA10Opponent"></div>
                         </div>
-                        <div class="columna_B">
-                            <div class="Fila_1", id="CasillaB1Opponent"></div>
-                            <div class="Fila_2", id="CasillaB2Opponent"></div>
-                            <div class="Fila_3", id="CasillaB3Opponent"></div>
-                            <div class="Fila_4", id="CasillaB4Opponent"></div>
-                            <div class="Fila_5", id="CasillaB5Opponent"></div>
-                            <div class="Fila_6", id="CasillaB6Opponent"></div>
-                            <div class="Fila_7", id="CasillaB7Opponent"></div>
-                            <div class="Fila_8", id="CasillaB8Opponent"></div>
-                            <div class="Fila_9", id="CasillaB9Opponent"></div>
-                            <div class="Fila_10", id="CasillaB10Opponent"></div>
+                        <div class="columna columna_B">
+                            <div class="casilla fila_1", id="CasillaB1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaB2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaB3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaB4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaB5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaB6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaB7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaB8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaB9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaB10Opponent"></div>
                         </div>
-                        <div class="columna_C">
-                            <div class="Fila_1", id="CasillaC1Opponent"></div>
-                            <div class="Fila_2", id="CasillaC2Opponent"></div>
-                            <div class="Fila_3", id="CasillaC3Opponent"></div>
-                            <div class="Fila_4", id="CasillaC4Opponent"></div>
-                            <div class="Fila_5", id="CasillaC5Opponent"></div>
-                            <div class="Fila_6", id="CasillaC6Opponent"></div>
-                            <div class="Fila_7", id="CasillaC7Opponent"></div>
-                            <div class="Fila_8", id="CasillaC8Opponent"></div>
-                            <div class="Fila_9", id="CasillaC9Opponent"></div>
-                            <div class="Fila_10", id="CasillaC10Opponent"></div>
+                        <div class="columna columna_C">
+                            <div class="casilla fila_1", id="CasillaC1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaC2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaC3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaC4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaC5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaC6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaC7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaC8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaC9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaC10Opponent"></div>
                         </div>
-                        <div class="columna_D">
-                            <div class="Fila_1", id="CasillaD1Opponent"></div>
-                            <div class="Fila_2", id="CasillaD2Opponent"></div>
-                            <div class="Fila_3", id="CasillaD3Opponent"></div>
-                            <div class="Fila_4", id="CasillaD4Opponent"></div>
-                            <div class="Fila_5", id="CasillaD5Opponent"></div>
-                            <div class="Fila_6", id="CasillaD6Opponent"></div>
-                            <div class="Fila_7", id="CasillaD7Opponent"></div>
-                            <div class="Fila_8", id="CasillaD8Opponent"></div>
-                            <div class="Fila_9", id="CasillaD9Opponent"></div>
-                            <div class="Fila_10", id="CasillaD10Opponent"></div>
+                        <div class="columna columna_D">
+                            <div class="casilla fila_1", id="CasillaD1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaD2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaD3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaD4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaD5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaD6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaD7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaD8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaD9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaD10Opponent"></div>
                         </div>
-                        <div class="columna_E">
-                            <div class="Fila_1", id="CasillaE1Opponent"></div>
-                            <div class="Fila_2", id="CasillaE2Opponent"></div>
-                            <div class="Fila_3", id="CasillaE3Opponent"></div>
-                            <div class="Fila_4", id="CasillaE4Opponent"></div>
-                            <div class="Fila_5", id="CasillaE5Opponent"></div>
-                            <div class="Fila_6", id="CasillaE6Opponent"></div>
-                            <div class="Fila_7", id="CasillaE7Opponent"></div>
-                            <div class="Fila_8", id="CasillaE8Opponent"></div>
-                            <div class="Fila_9", id="CasillaE9Opponent"></div>
-                            <div class="Fila_10", id="CasillaE10Opponent"></div>
+                        <div class="columna columna_E">
+                            <div class="casilla fila_1", id="CasillaE1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaE2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaE3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaE4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaE5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaE6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaE7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaE8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaE9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaE10Opponent"></div>
                         </div>
-                        <div class="columna_F">
-                            <div class="Fila_1", id="CasillaF1Opponent"></div>
-                            <div class="Fila_2", id="CasillaF2Opponent"></div>
-                            <div class="Fila_3", id="CasillaF3Opponent"></div>
-                            <div class="Fila_4", id="CasillaF4Opponent"></div>
-                            <div class="Fila_5", id="CasillaF5Opponent"></div>
-                            <div class="Fila_6", id="CasillaF6Opponent"></div>
-                            <div class="Fila_7", id="CasillaF7Opponent"></div>
-                            <div class="Fila_8", id="CasillaF8Opponent"></div>
-                            <div class="Fila_9", id="CasillaF9Opponent"></div>
-                            <div class="Fila_10", id="CasillaF10Opponent"></div>
+                        <div class="columna columna_F">
+                            <div class="casilla fila_1", id="CasillaF1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaF2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaF3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaF4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaF5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaF6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaF7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaF8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaF9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaF10Opponent"></div>
                         </div>
-                        <div class="columna_G">
-                            <div class="Fila_1", id="CasillaG1Opponent"></div>
-                            <div class="Fila_2", id="CasillaG2Opponent"></div>
-                            <div class="Fila_3", id="CasillaG3Opponent"></div>
-                            <div class="Fila_4", id="CasillaG4Opponent"></div>
-                            <div class="Fila_5", id="CasillaG5Opponent"></div>
-                            <div class="Fila_6", id="CasillaG6Opponent"></div>
-                            <div class="Fila_7", id="CasillaG7Opponent"></div>
-                            <div class="Fila_8", id="CasillaG8Opponent"></div>
-                            <div class="Fila_9", id="CasillaG9Opponent"></div>
-                            <div class="Fila_10", id="CasillaG10Opponent"></div>
+                        <div class="columna columna_G">
+                            <div class="casilla fila_1", id="CasillaG1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaG2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaG3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaG4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaG5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaG6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaG7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaG8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaG9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaG10Opponent"></div>
                         </div>
-                        <div class="columna_H">
-                            <div class="Fila_1", id="CasillaH1Opponent"></div>
-                            <div class="Fila_2", id="CasillaH2Opponent"></div>
-                            <div class="Fila_3", id="CasillaH3Opponent"></div>
-                            <div class="Fila_4", id="CasillaH4Opponent"></div>
-                            <div class="Fila_5", id="CasillaH5Opponent"></div>
-                            <div class="Fila_6", id="CasillaH6Opponent"></div>
-                            <div class="Fila_7", id="CasillaH7Opponent"></div>
-                            <div class="Fila_8", id="CasillaH8Opponent"></div>
-                            <div class="Fila_9", id="CasillaH9Opponent"></div>
-                            <div class="Fila_10", id="CasillaH10Opponent"></div>
+                        <div class="columna columna_H">
+                            <div class="casilla fila_1", id="CasillaH1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaH2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaH3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaH4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaH5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaH6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaH7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaH8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaH9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaH10Opponent"></div>
                         </div>
-                        <div class="columna_I">
-                            <div class="Fila_1", id="CasillaI1Opponent"></div>
-                            <div class="Fila_2", id="CasillaI2Opponent"></div>
-                            <div class="Fila_3", id="CasillaI3Opponent"></div>
-                            <div class="Fila_4", id="CasillaI4Opponent"></div>
-                            <div class="Fila_5", id="CasillaI5Opponent"></div>
-                            <div class="Fila_6", id="CasillaI6Opponent"></div>
-                            <div class="Fila_7", id="CasillaI7Opponent"></div>
-                            <div class="Fila_8", id="CasillaI8Opponent"></div>
-                            <div class="Fila_9", id="CasillaI9Opponent"></div>
-                            <div class="Fila_10", id="CasillaI10Opponent"></div>
+                        <div class="columna columna_I">
+                            <div class="casilla fila_1", id="CasillaI1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaI2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaI3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaI4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaI5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaI6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaI7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaI8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaI9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaI10Opponent"></div>
                         </div>
-                        <div class="columna_J">
-                            <div class="Fila_1", id="CasillaJ1Opponent"></div>
-                            <div class="Fila_2", id="CasillaJ2Opponent"></div>
-                            <div class="Fila_3", id="CasillaJ3Opponent"></div>
-                            <div class="Fila_4", id="CasillaJ4Opponent"></div>
-                            <div class="Fila_5", id="CasillaJ5Opponent"></div>
-                            <div class="Fila_6", id="CasillaJ6Opponent"></div>
-                            <div class="Fila_7", id="CasillaJ7Opponent"></div>
-                            <div class="Fila_8", id="CasillaJ8Opponent"></div>
-                            <div class="Fila_9", id="CasillaJ9Opponent"></div>
-                            <div class="Fila_10", id="CasillaJ10Opponent"></div>
+                        <div class="columna columna_J">
+                            <div class="casilla fila_1", id="CasillaJ1Opponent"></div>
+                            <div class="casilla fila_2", id="CasillaJ2Opponent"></div>
+                            <div class="casilla fila_3", id="CasillaJ3Opponent"></div>
+                            <div class="casilla fila_4", id="CasillaJ4Opponent"></div>
+                            <div class="casilla fila_5", id="CasillaJ5Opponent"></div>
+                            <div class="casilla fila_6", id="CasillaJ6Opponent"></div>
+                            <div class="casilla fila_7", id="CasillaJ7Opponent"></div>
+                            <div class="casilla fila_8", id="CasillaJ8Opponent"></div>
+                            <div class="casilla fila_9", id="CasillaJ9Opponent"></div>
+                            <div class="casilla fila_10", id="CasillaJ10Opponent"></div>
                         </div>
 
                     </section>
