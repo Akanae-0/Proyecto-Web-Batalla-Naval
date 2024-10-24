@@ -1,0 +1,139 @@
+body {
+    margin: 0px;
+    font-size: 1.2rem;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    min-height:100vh;
+    flex-direction:column;
+}
+nav {
+    position: fixed;
+}
+.Barra_Superior {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(28, 108, 228);
+    width: 100vw;
+    height: 7.5vh;
+    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+}
+.Usuario_Juego_Botones {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 1%;
+}
+.Input_Usuario {
+    flex: 1;
+    width: 90%;
+}
+.Boton_Ingresar {
+    width: 100%;
+    height: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.Boton_Ingresar:hover{
+    background-color: rgba(233, 144, 41, 100%);
+    color: white;
+}
+.Boton_Jugar {
+    width: 100%;
+    height: 25px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.Boton_Jugar:hover{
+    background-color: rgba(233, 144, 41, 100%);
+    color: white;
+}
+.Acceso_Directo_Instrucciones {
+    flex: 1;
+    text-align: end;
+    padding-right: 5%;
+}
+a:link{
+    color: rgb(233, 144, 41);
+    background-color: transparent;
+    text-decoration: none;
+}
+a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+}
+a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+}
+#Ventana_Principal_Juego {
+    flex: 1;
+}
+#Juego{
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-column-gap: 20px;
+}
+#Barcos_Lado{
+    background-color: rgb(184, 164, 164, 90%);
+}
+.tableros{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    padding: none;
+    padding-left: 10px;
+    column-gap: 5%;
+}
+.Board_Title_Card {
+    text-align: start;
+    margin: 0px;
+    padding-left: 120px;
+    margin-bottom: 10px;
+    color:red;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.columna{
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px;
+}
+.casilla{
+    border: 1px solid black;
+    height: 30px;
+}
+.BLANK{
+    border: none;
+    text-align: center;
+}
+footer {
+    position:relative;
+    vertical-align: bottom;
+    bottom: 0;
+    width: 100%;
+    margin-top: 15px;
+    background-color: rgb(172, 164, 164, 40%);
+}
+#Contenido_Footer_Instrucciones_Titulo{
+    font-size: 1.2rem;
+    text-align:center;
+}
+#Contenido_Footer_Texto{
+    font-size: 0.8rem;
+    text-align:justify;
+}
