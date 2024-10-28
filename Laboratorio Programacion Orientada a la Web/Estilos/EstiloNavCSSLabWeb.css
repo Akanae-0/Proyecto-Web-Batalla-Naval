@@ -53,22 +53,22 @@ nav {
     text-align: end;
     padding-right: 5%;
 }
-a:link{
-    color: rgb(233, 144, 41);
+#Contenido_Footer_Instrucciones_Titulo_To_Footer:link{
+    color: rgb(233, 144, 0);
     background-color: transparent;
     text-decoration: none;
 }
-a:visited {
+#Contenido_Footer_Instrucciones_Titulo_To_Footer:visited {
     color: pink;
     background-color: transparent;
     text-decoration: none;
 }
-a:hover {
+#Contenido_Footer_Instrucciones_Titulo_To_Footer:hover {
     color: red;
     background-color: transparent;
     text-decoration: underline;
 }
-a:active {
+#Contenido_Footer_Instrucciones_Titulo_To_Footer:active {
     color: yellow;
     background-color: transparent;
     text-decoration: underline;
