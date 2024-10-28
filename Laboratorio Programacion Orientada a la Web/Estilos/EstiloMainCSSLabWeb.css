@@ -1,0 +1,43 @@
+#Ventana_Principal_Juego {
+    flex: 1;
+    padding-top: 60px;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    grid-column-gap: 20px;
+}
+#Barcos_Lado{
+    background-color: rgb(184, 164, 164, 90%);
+}
+.tableros{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    padding: none;
+    padding-left: 10px;
+    column-gap: 5%;
+}
+.Board_Title_Card {
+    text-align: start;
+    margin: 0px;
+    padding-left: 120px;
+    margin-bottom: 10px;
+    color:red;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.columna{
+    display: grid;
+    grid-template-columns: 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px 30px;
+}
+.casilla{
+    border: 1px solid black;
+    height: 30px;
+}
+.casilla:hover{
+    background-color: rgba(136, 255, 215, 70%);
+    cursor: pointer;
+}
+.BLANK{
+    border: none;
+    text-align: center;
+}
