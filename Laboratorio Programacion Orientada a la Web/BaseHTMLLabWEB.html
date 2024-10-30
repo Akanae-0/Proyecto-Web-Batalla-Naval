@@ -32,19 +32,10 @@
         <!--cada casilla de las tablas es un objeto, tiene comportamiento propio. html puro es div. Con css es más sencillo, prox class. diseño tabla, estructura objetos-->
         <!-- tabla visualiza datos, no es reactiva -->
         <!-- <caption>Juego</caption> TABLAS. Importante para funciones de accesibilidad como las alt in img-->
-        <aside id="Barcos_Lado">
-            <section>
-                <p>Portaaviones</p>
-                <p>Acorazado</p>
-                <p>Crucero</p>
-                <p>Submarino</p>
-                <p>Destructor</p>
-            </section>
-        </aside>
         <section class="tableros">
-            <p class="Board_Title_Card">JUGADOR</p>
-            <P class="Board_Title_Card">OPONENTE</P>
-            <section class="players_board">
+            <section class="Board_Unity">
+                <p class="Board_Title_Card">JUGADOR</p>
+                <section class="players_board">
                 <div class="columna" , id="columna_Blank">
                     <div class="casilla BLANK"></div>
                     <div class="casilla BLANK">1</div>
@@ -188,8 +179,11 @@
                     <div class="casilla" , id="CasillaJ9Player"></div>
                     <div class="casilla" , id="CasillaJ10Player"></div>
                 </div>
+                </section>
             </section>
-            <section class="opponents_board">
+            <section class="Board_Unity">
+                <P class="Board_Title_Card">OPONENTE</P>
+                <section class="opponents_board">
                 <div class="columna" , id="columna_Blank">
                     <div class="casilla BLANK"></div>
                     <div class="casilla BLANK">1</div>
@@ -334,8 +328,18 @@
                     <div class="casilla" , id="CasillaJ10Opponent"></div>
                 </div>
 
+                </section>
             </section>
         </section>
+        <aside id="Barcos_Lado">
+            <section>
+                <p>Portaaviones</p>
+                <p>Acorazado</p>
+                <p>Crucero</p>
+                <p>Submarino</p>
+                <p>Destructor</p>
+            </section>
+        </aside>
     </main>
     <footer>
         <h2 id="Contenido_Footer_Instrucciones_Titulo">Instrucciones</h2>

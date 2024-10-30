@@ -1,12 +1,16 @@
 nav {
     position: fixed;
+    width: 100vw;
+    
 }
 .Barra_Superior {
     display: flex;
     flex-direction: row;
     background-color: rgb(28, 108, 228);
-    width: 100vw;
+    width: 100%;
+    min-width: 300px;
     height: 7.5vh;
+    max-height: 55px;
     border: 1px solid black;
     justify-content: space-between;
     align-items: center;
@@ -21,6 +25,7 @@ nav {
 .Input_Usuario {
     flex: 1;
     width: 90%;
+    min-width: 20px;
 }
 .Boton_Ingresar {
     width: 100px;
