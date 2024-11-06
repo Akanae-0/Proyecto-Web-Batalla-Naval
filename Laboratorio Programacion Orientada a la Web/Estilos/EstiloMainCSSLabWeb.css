@@ -14,7 +14,7 @@
 .tableros{
     flex: 5;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: none;
     padding-left: 10px;
     flex-wrap: wrap;
@@ -51,4 +51,8 @@
 .BLANK{
     border: none;
     text-align: center;
+}
+.BLANK:hover{
+    background-color: white;
+    cursor: default;
 }
