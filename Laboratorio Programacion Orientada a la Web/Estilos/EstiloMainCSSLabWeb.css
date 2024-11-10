@@ -23,7 +23,7 @@
     margin-top: 10px;
     flex: 1;
     max-width: 660px;
-    mim-width: 330px;
+    min-width: 330px;
     margin-right: 5%
 }
 .Board_Title_Card {
