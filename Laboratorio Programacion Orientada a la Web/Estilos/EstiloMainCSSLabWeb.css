@@ -20,7 +20,11 @@
     flex-wrap: wrap;
 }
 .Board_Unity {
+    margin-top: 10px;
     flex: 1;
+    max-width: 660px;
+    mim-width: 330px;
+    margin-right: 5%
 }
 .Board_Title_Card {
     text-align: center;
@@ -31,10 +35,12 @@
     font-size: 1.5rem;
     font-weight: bold;
 }
-.columna{
+.Board{
     display: grid;
-    grid-template-columns: 9% 9% 9% 9% 9% 9% 9% 9% 9% 9% 9%;
+    grid-template-columns: repeat(11, 1fr);
     row-gap: 0;
+    column-gap: 0;
+    
 }
 .casilla{
     border: 1px solid black;
@@ -43,6 +49,8 @@
     min-width: 30px;
     max-height: 60px;
     max-width: 60px;
+    padding: none;
+    margin: none;
 }
 .casilla:hover{
     background-color: rgba(136, 255, 215, 70%);
@@ -51,6 +59,7 @@
 .BLANK{
     border: none;
     text-align: center;
+    place-self: center;
 }
 .BLANK:hover{
     background-color: white;
