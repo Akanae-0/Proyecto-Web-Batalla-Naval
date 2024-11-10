@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es--ve">
 <!--Aarón Bastardo-->
-<!--NOTE TO SELF. TAKE INSPIRATION FROM DESIGN AND CODE FROM SHOWDOWN-->
-<!--2-5 lunes y martes consulta-->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab Test Aarón Bastardo - Batalla Naval</title>
+    <link rel="icon" type="image/x-icon" href="BattleShip_Lab_Assets/Icon_Tab_Lab.png">
     <link rel="stylesheet" href="Estilos/EstiloBodyCSSLabWeb.css">
     <link rel="stylesheet" href="Estilos/EstiloMainCSSLabWeb.css">
     <link rel="stylesheet" href="Estilos/EstiloFooterCSSLabWeb.css">
@@ -22,22 +21,19 @@
                 <button class="Boton_Ingresar">Ingresar</button>
                 <button class="Boton_Jugar">Jugar</button>
             </div>
-            <div class="Acceso_Directo_Instrucciones"><a href="#Contenido_Footer_Instrucciones_Titulo" id="Contenido_Footer_Instrucciones_Titulo_To_Footer">Instrucciones</a>
+            <div class="Acceso_Directo_Instrucciones"><a href="#Contenido_Footer_Instrucciones_Titulo"
+                    id="Contenido_Footer_Instrucciones_Titulo_To_Footer">Instrucciones</a>
             </div>
         </nav>
     </header>
     <main id="Ventana_Principal_Juego">
-        <!--you want to render main before aside-->
-        <!--una pagina puede tener subsecciones dentro de las secciones preexistentes-->
-        <!--cada casilla de las tablas es un objeto, tiene comportamiento propio. html puro es div. Con css es más sencillo, prox class. diseño tabla, estructura objetos-->
-        <!-- tabla visualiza datos, no es reactiva -->
-        <!-- <caption>Juego</caption> TABLAS. Importante para funciones de accesibilidad como las alt in img-->
+        
         <section class="tableros">
             <section class="Board_Unity">
                 <p class="Board_Title_Card">JUGADOR</p>
                 <section id="players_board" class="Board">
-                
-                    <div class="casilla BLANK"></div>
+
+                    <div class="casilla casilla_vacia"></div>
                     <div class="casilla BLANK">1</div>
                     <div class="casilla BLANK">2</div>
                     <div class="casilla BLANK">3</div>
@@ -48,7 +44,7 @@
                     <div class="casilla BLANK">8</div>
                     <div class="casilla BLANK">9</div>
                     <div class="casilla BLANK">10</div>
-                
+
                     <div class="casilla BLANK">A</div>
                     <div class="casilla" , id="CasillaA1Player"></div>
                     <div class="casilla" , id="CasillaA2Player"></div>
@@ -60,7 +56,7 @@
                     <div class="casilla" , id="CasillaA8Player"></div>
                     <div class="casilla" , id="CasillaA9Player"></div>
                     <div class="casilla" , id="CasillaA10Player"></div>
-                
+
                     <div class="casilla BLANK">B</div>
                     <div class="casilla" , id="CasillaB1Player"></div>
                     <div class="casilla" , id="CasillaB2Player"></div>
@@ -72,7 +68,7 @@
                     <div class="casilla" , id="CasillaB8Player"></div>
                     <div class="casilla" , id="CasillaB9Player"></div>
                     <div class="casilla" , id="CasillaB10Player"></div>
-                
+
                     <div class="casilla BLANK">C</div>
                     <div class="casilla" , id="CasillaC1Player"></div>
                     <div class="casilla" , id="CasillaC2Player"></div>
@@ -84,7 +80,7 @@
                     <div class="casilla" , id="CasillaC8Player"></div>
                     <div class="casilla" , id="CasillaC9Player"></div>
                     <div class="casilla" , id="CasillaC10Player"></div>
-                
+
                     <div class="casilla BLANK">D</div>
                     <div class="casilla" , id="CasillaD1Player"></div>
                     <div class="casilla" , id="CasillaD2Player"></div>
@@ -96,7 +92,7 @@
                     <div class="casilla" , id="CasillaD8Player"></div>
                     <div class="casilla" , id="CasillaD9Player"></div>
                     <div class="casilla" , id="CasillaD10Player"></div>
-                
+
                     <div class="casilla BLANK">E</div>
                     <div class="casilla" , id="CasillaE1Player"></div>
                     <div class="casilla" , id="CasillaE2Player"></div>
@@ -108,7 +104,7 @@
                     <div class="casilla" , id="CasillaE8Player"></div>
                     <div class="casilla" , id="CasillaE9Player"></div>
                     <div class="casilla" , id="CasillaE10Player"></div>
-                
+
                     <div class="casilla BLANK">F</div>
                     <div class="casilla" , id="CasillaF1Player"></div>
                     <div class="casilla" , id="CasillaF2Player"></div>
@@ -120,7 +116,7 @@
                     <div class="casilla" , id="CasillaF8Player"></div>
                     <div class="casilla" , id="CasillaF9Player"></div>
                     <div class="casilla" , id="CasillaF10Player"></div>
-                
+
                     <div class="casilla BLANK">G</div>
                     <div class="casilla" , id="CasillaG1Player"></div>
                     <div class="casilla" , id="CasillaG2Player"></div>
@@ -132,7 +128,7 @@
                     <div class="casilla" , id="CasillaG8Player"></div>
                     <div class="casilla" , id="CasillaG9Player"></div>
                     <div class="casilla" , id="CasillaG10Player"></div>
-                
+
                     <div class="casilla BLANK">H</div>
                     <div class="casilla" , id="CasillaH1Player"></div>
                     <div class="casilla" , id="CasillaH2Player"></div>
@@ -144,7 +140,7 @@
                     <div class="casilla" , id="CasillaH8Player"></div>
                     <div class="casilla" , id="CasillaH9Player"></div>
                     <div class="casilla" , id="CasillaH10Player"></div>
-                
+
                     <div class="casilla BLANK">I</div>
                     <div class="casilla" , id="CasillaI1Player"></div>
                     <div class="casilla" , id="CasillaI2Player"></div>
@@ -156,7 +152,7 @@
                     <div class="casilla" , id="CasillaI8Player"></div>
                     <div class="casilla" , id="CasillaI9Player"></div>
                     <div class="casilla" , id="CasillaI10Player"></div>
-                
+
                     <div class="casilla BLANK">J</div>
                     <div class="casilla" , id="CasillaJ1Player"></div>
                     <div class="casilla" , id="CasillaJ2Player"></div>
@@ -168,14 +164,14 @@
                     <div class="casilla" , id="CasillaJ8Player"></div>
                     <div class="casilla" , id="CasillaJ9Player"></div>
                     <div class="casilla" , id="CasillaJ10Player"></div>
-                
+
                 </section>
             </section>
             <section class="Board_Unity">
                 <P class="Board_Title_Card">OPONENTE</P>
                 <section id="opponents_board" class="Board">
-                    
-                    <div class="casilla BLANK"></div>
+
+                    <div class="casilla casilla_vacia"></div>
                     <div class="casilla BLANK">1</div>
                     <div class="casilla BLANK">2</div>
                     <div class="casilla BLANK">3</div>
@@ -186,7 +182,7 @@
                     <div class="casilla BLANK">8</div>
                     <div class="casilla BLANK">9</div>
                     <div class="casilla BLANK">10</div>
-                
+
                     <div class="casilla BLANK">A</div>
                     <div class="casilla" , id="CasillaA1Opponent"></div>
                     <div class="casilla" , id="CasillaA2Opponent"></div>
@@ -198,7 +194,7 @@
                     <div class="casilla" , id="CasillaA8Opponent"></div>
                     <div class="casilla" , id="CasillaA9Opponent"></div>
                     <div class="casilla" , id="CasillaA10Opponent"></div>
-                
+
                     <div class="casilla BLANK">B</div>
                     <div class="casilla" , id="CasillaB1Opponent"></div>
                     <div class="casilla" , id="CasillaB2Opponent"></div>
@@ -210,7 +206,7 @@
                     <div class="casilla" , id="CasillaB8Opponent"></div>
                     <div class="casilla" , id="CasillaB9Opponent"></div>
                     <div class="casilla" , id="CasillaB10Opponent"></div>
-                
+
                     <div class="casilla BLANK">C</div>
                     <div class="casilla" , id="CasillaC1Opponent"></div>
                     <div class="casilla" , id="CasillaC2Opponent"></div>
@@ -222,7 +218,7 @@
                     <div class="casilla" , id="CasillaC8Opponent"></div>
                     <div class="casilla" , id="CasillaC9Opponent"></div>
                     <div class="casilla" , id="CasillaC10Opponent"></div>
-                
+
                     <div class="casilla BLANK">D</div>
                     <div class="casilla" , id="CasillaD1Opponent"></div>
                     <div class="casilla" , id="CasillaD2Opponent"></div>
@@ -234,7 +230,7 @@
                     <div class="casilla" , id="CasillaD8Opponent"></div>
                     <div class="casilla" , id="CasillaD9Opponent"></div>
                     <div class="casilla" , id="CasillaD10Opponent"></div>
-                
+
                     <div class="casilla BLANK">E</div>
                     <div class="casilla" , id="CasillaE1Opponent"></div>
                     <div class="casilla" , id="CasillaE2Opponent"></div>
@@ -246,7 +242,7 @@
                     <div class="casilla" , id="CasillaE8Opponent"></div>
                     <div class="casilla" , id="CasillaE9Opponent"></div>
                     <div class="casilla" , id="CasillaE10Opponent"></div>
-                
+
                     <div class="casilla BLANK">F</div>
                     <div class="casilla" , id="CasillaF1Opponent"></div>
                     <div class="casilla" , id="CasillaF2Opponent"></div>
@@ -258,7 +254,7 @@
                     <div class="casilla" , id="CasillaF8Opponent"></div>
                     <div class="casilla" , id="CasillaF9Opponent"></div>
                     <div class="casilla" , id="CasillaF10Opponent"></div>
-                
+
                     <div class="casilla BLANK">G</div>
                     <div class="casilla" , id="CasillaG1Opponent"></div>
                     <div class="casilla" , id="CasillaG2Opponent"></div>
@@ -270,7 +266,7 @@
                     <div class="casilla" , id="CasillaG8Opponent"></div>
                     <div class="casilla" , id="CasillaG9Opponent"></div>
                     <div class="casilla" , id="CasillaG10Opponent"></div>
-                
+
                     <div class="casilla BLANK">H</div>
                     <div class="casilla" , id="CasillaH1Opponent"></div>
                     <div class="casilla" , id="CasillaH2Opponent"></div>
@@ -282,7 +278,7 @@
                     <div class="casilla" , id="CasillaH8Opponent"></div>
                     <div class="casilla" , id="CasillaH9Opponent"></div>
                     <div class="casilla" , id="CasillaH10Opponent"></div>
-                
+
                     <div class="casilla BLANK">I</div>
                     <div class="casilla" , id="CasillaI1Opponent"></div>
                     <div class="casilla" , id="CasillaI2Opponent"></div>
@@ -294,7 +290,7 @@
                     <div class="casilla" , id="CasillaI8Opponent"></div>
                     <div class="casilla" , id="CasillaI9Opponent"></div>
                     <div class="casilla" , id="CasillaI10Opponent"></div>
-                
+
                     <div class="casilla BLANK">J</div>
                     <div class="casilla" , id="CasillaJ1Opponent"></div>
                     <div class="casilla" , id="CasillaJ2Opponent"></div>
@@ -306,19 +302,19 @@
                     <div class="casilla" , id="CasillaJ8Opponent"></div>
                     <div class="casilla" , id="CasillaJ9Opponent"></div>
                     <div class="casilla" , id="CasillaJ10Opponent"></div>
-                
+
 
                 </section>
             </section>
         </section>
         <aside id="Barcos_Lado">
-            <section>
-                <p>Portaaviones</p>
-                <p>Acorazado</p>
-                <p>Crucero</p>
-                <p>Submarino</p>
-                <p>Destructor</p>
-            </section>
+            
+            <img src="BattleShip_Lab_Assets/Portaaviones_5_Cas.png" alt="Portaaviones" id="Portaaviones">
+            <img src="BattleShip_Lab_Assets/Acorazado_4_Cas.png" alt="Acorazado" id="Acorazado">
+            <img src="BattleShip_Lab_Assets/Crucero_3_Cas.png" alt="Crucero" id="Crucero">
+            <img src="BattleShip_Lab_Assets/Submarino_3_Cas.png" alt="Submarino" id="Submarino">
+            <img src="BattleShip_Lab_Assets/Destructor_2_Cas.png" alt="Destructor" id="Destructor">
+            
         </aside>
     </main>
     <footer>

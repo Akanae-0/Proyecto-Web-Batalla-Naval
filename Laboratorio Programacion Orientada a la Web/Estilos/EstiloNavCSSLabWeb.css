@@ -10,8 +10,8 @@ nav {
     width: 100%;
     min-width: 300px;
     height: 7.5vh;
-    min-height: 30px;
-    max-height: 55px;
+    min-height: 55px;
+    max-height: 60px;
     border: 1px solid black;
     justify-content: space-between;
     align-items: center;
@@ -26,13 +26,13 @@ nav {
 .Input_Usuario {
     flex: 1;
     width: 90%;
-    min-width: 20px;
+    min-width: 25px;
 }
 .Boton_Ingresar {
     width: 100px;
     height: 25px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     margin-left: 5px;
@@ -45,7 +45,7 @@ nav {
     width: 100px;
     height: 25px;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     margin-left: 5px;
