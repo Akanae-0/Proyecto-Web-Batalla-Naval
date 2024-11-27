@@ -65,6 +65,7 @@
     padding-left: 10px;
     flex-wrap: wrap;
     background-image: url(../BattleShip_Lab_Assets/Fondo_Agua.jpg);
+    min-width: 360px;
 }
 .Board_Unity {
     margin-top: 10px;
