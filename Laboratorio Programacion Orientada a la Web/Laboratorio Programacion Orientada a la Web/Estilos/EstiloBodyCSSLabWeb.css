@@ -1,8 +1,0 @@
-body {
-    margin: 0px;
-    font-size: 1.2rem;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    min-height:100vh;
-    flex-direction:column;
-}
