@@ -1,0 +1,24 @@
+@media only screen and (max-width: 550px){
+    #Barcos_Lado{
+        min-height: 120px;
+        display: grid;
+        grid-template: 
+            "PA PA PA PA PA AC AC AC AC" 30px
+            "CR CR CR SB SB SB DT DT ." 30px
+    }
+    #Portaaviones{
+        grid-area: PA;
+    }
+    #Acorazado{
+        grid-area: AC;
+    }
+    #Crucero{
+        grid-area: CR;
+    }
+    #Submarino{
+        grid-area: SB;
+    }
+    #Destructor{
+        grid-area: DT;
+    }
+}
