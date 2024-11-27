@@ -76,6 +76,7 @@
 .Board_Title_Card {
     text-align: center;
     margin: 0px;
+    height: auto;
     padding-left: 0px;
     margin-bottom: 10px;
     color:rgb(255, 72, 0);
