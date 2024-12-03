@@ -11,27 +11,32 @@ const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "j"];
 const barcosJuego = [
     {
         name: "Portaaviones",
-        source: "BattleShip_Lab_Assets/Portaaviones_5_Cas.png",
+        sourceHorizontal: "BattleShip_Lab_Assets/Portaaviones_5_Cas.png",
+        sourceVertical: "BattleShip_Lab_Assets/Portaaviones_5_Cas_Ver.png",
         spaces: 5
     },
     {
         name: "Acorazado",
-        source: "BattleShip_Lab_Assets/Acorazado_4_Cas.png",
+        sourceHorizontal: "BattleShip_Lab_Assets/Acorazado_4_Cas.png",
+        sourceVertical: "BattleShip_Lab_Assets/Acorazado_4_Cas_Ver.png",
         spaces: 4
     },
     {
         name: "Crucero",
-        source: "BattleShip_Lab_Assets/Crucero_3_Cas.png",
+        sourceHorizontal: "BattleShip_Lab_Assets/Crucero_3_Cas.png",
+        sourceVertical: "BattleShip_Lab_Assets/Crucero_3_Cas_Ver.png",
         spaces: 3
     },
     {
         name: "Submarino",
-        source: "BattleShip_Lab_Assets/Submarino_3_Cas.png",
+        sourceHorizontal: "BattleShip_Lab_Assets/Submarino_3_Cas.png",
+        sourceVertical: "BattleShip_Lab_Assets/Submarino_3_Cas_Ver.png",
         spaces: 3
     },
     {
         name: "Destructor",
-        source: "BattleShip_Lab_Assets/Destructor_2_Cas.png",
+        sourceHorizontal: "BattleShip_Lab_Assets/Destructor_2_Cas.png",
+        sourceVertical: "BattleShip_Lab_Assets/Destructor_2_Cas_Ver.png",
         spaces: 2
     }
 ]
@@ -158,11 +163,32 @@ for (let x = 0; x < numeroTableros; x++) {
     gameSection.appendChild(unidadTableroCreacion);
 }
 
-for (let barco of barcosJuego){
-    let barcoCreando = document.createElement("img");
+/*for (let barco of barcosJuego){
+    let barcoCreando = document.createElement("div");
     barcoCreando.setAttribute("id", barco.name);
-    barcoCreando.setAttribute("src", barco.source);
-    barcoCreando.setAttribute("alt", barco.name);
     barcoCreando.classList.add("Barco");
+    let barcoCreandoHorizontal = document.createElement("img");
+    barcoCreandoHorizontal.setAttribute("id", barco.name + "_H");
+    barcoCreandoHorizontal.setAttribute("src", barco.sourceHorizontal);
+    barcoCreandoHorizontal.setAttribute("alt", barco.name);
+    barcoCreandoHorizontal.classList.add("Barco_Horizontal");
+    let barcoCreandoVertical = document.createElement("img");
+    barcoCreandoVertical.setAttribute("id", barco.name + "_V");
+    barcoCreandoVertical.setAttribute("src", barco.sourceVertical);
+    barcoCreandoVertical.setAttribute("alt", barco.name);
+    barcoCreandoVertical.classList.add("Barco_Vertical");
+    barcoCreando.appendChild(barcoCreandoHorizontal);
+    barcoCreando.appendChild(barcoCreandoVertical);
+    asideSection.appendChild(barcoCreando);
+}*/
+for (let barco of barcosJuego){
+    let barcoCreando = document.createElement("picture");
+    barcoCreando.setAttribute("id", barco.name);
+    barcoCreando.classList.add("Barco");
+    barcoCreando.innerHTML = `
+    <source media="(max-width: 550px)" srcset=`+barco.sourceHorizontal+`>
+    <source media="(min-width: 551px)" srcset=`+barco.sourceVertical+`>
+    <img src=`+barco.sourceVertical+` alt="`+barco.name+`" class="Barco_Inner">
+    `
     asideSection.appendChild(barcoCreando);
 }
