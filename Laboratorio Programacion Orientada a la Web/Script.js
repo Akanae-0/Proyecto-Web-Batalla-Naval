@@ -7,7 +7,7 @@ const columns = 11;
 const numeroTableros = 2;
 const numeroBarcos = 5;
 let gameBoardPlayerTitle = "";
-const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "j"];
+const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 const barcosJuego = [
     {
         name: "Portaaviones",
