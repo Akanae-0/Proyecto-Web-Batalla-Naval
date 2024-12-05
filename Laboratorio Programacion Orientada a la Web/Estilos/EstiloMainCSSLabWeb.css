@@ -12,50 +12,38 @@
     margin-left: 0;
     min-width: 180px;
 }
+.Barco{
+    max-height: 60px;
+    min-height: 30px;
+    aspect-ratio: 1;
+    height: auto;
+    margin-right: 5px;
+    
+}
 #Portaaviones {
     max-width: 300px;
-    max-height: 60px;
     min-width: 150px;
-    min-height: 30px;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1;
+    width: 100%; 
 }
 #Acorazado {
     max-width: 240px;
-    max-height: 60px;
     min-width: 120px;
-    min-height: 30px;
     width: calc(100% - 20%);
-    height: auto;
-    aspect-ratio: 1;
 }
 #Crucero {
     max-width: 180px;
-    max-height: 60px;
     min-width: 90px;
-    min-height: 30px;
     width: calc(100% - 40%);
-    height: auto;
-    aspect-ratio: 1;
 }
 #Submarino {
     max-width: 180px;
-    max-height: 60px;
     min-width: 90px;
-    min-height: 30px;
     width: calc(100% - 40%);
-    height: auto;
-    aspect-ratio: 1;
 }
 #Destructor {
     max-width: 120px;
-    max-height: 60px;
     min-width: 60px;
-    min-height: 30px;
     width: calc(100% - 60%);
-    height: auto;
-    aspect-ratio: 1;
 }
 .tableros{
     flex: 5;
@@ -65,6 +53,7 @@
     padding-left: 10px;
     flex-wrap: wrap;
     background-image: url(../BattleShip_Lab_Assets/Fondo_Agua.jpg);
+    min-width: 360px;
 }
 .Board_Unity {
     margin-top: 10px;
@@ -76,6 +65,7 @@
 .Board_Title_Card {
     text-align: center;
     margin: 0px;
+    height: auto;
     padding-left: 0px;
     margin-bottom: 10px;
     color:rgb(255, 72, 0);
@@ -100,8 +90,14 @@
     background-color: rgb(240, 248, 255, 75%);
 }
 .casilla:hover{
-    background-color: rgba(255, 136, 152, 0.7);
+    background-color: rgba(142, 242, 255, 0.7);
     cursor: pointer;
+}
+.hit_space{
+    background-color: rgb(212, 7, 7);
+}
+.water_space{
+    background-color: rgb(153, 144, 144);
 }
 .BLANK{
     border: none;
