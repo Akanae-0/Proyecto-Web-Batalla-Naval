@@ -75,76 +75,10 @@ for (let x = 0; x < numeroTableros; x++) {
             if (i == 0 || j == 0) {
                 gridItem.classList.add("BLANK");
                 if (j == 0) {
-                    switch (i) {
-                        case 1:
-                            gridItem.innerHTML = "A";
-                            break;
-                        case 2:
-                            gridItem.innerHTML = "B";
-                            break;
-                        case 3:
-                            gridItem.innerHTML = "C";
-                            break;
-                        case 4:
-                            gridItem.innerHTML = "D";
-                            break;
-                        case 5:
-                            gridItem.innerHTML = "E";
-                            break;
-                        case 6:
-                            gridItem.innerHTML = "F";
-                            break;
-                        case 7:
-                            gridItem.innerHTML = "G";
-                            break;
-                        case 8:
-                            gridItem.innerHTML = "H";
-                            break;
-                        case 9:
-                            gridItem.innerHTML = "I";
-                            break;
-                        case 10:
-                            gridItem.innerHTML = "J";
-                            break;
-                        default:
-                            break;
-                    }
+                    if (i > 0) gridItem.innerHTML = filaToLetra[i];
                 }
                 if (i == 0) {
-                    switch (j) {
-                        case 1:
-                            gridItem.innerHTML = "1";
-                            break;
-                        case 2:
-                            gridItem.innerHTML = "2";
-                            break;
-                        case 3:
-                            gridItem.innerHTML = "3";
-                            break;
-                        case 4:
-                            gridItem.innerHTML = "4";
-                            break;
-                        case 5:
-                            gridItem.innerHTML = "5";
-                            break;
-                        case 6:
-                            gridItem.innerHTML = "6";
-                            break;
-                        case 7:
-                            gridItem.innerHTML = "7";
-                            break;
-                        case 8:
-                            gridItem.innerHTML = "8";
-                            break;
-                        case 9:
-                            gridItem.innerHTML = "9";
-                            break;
-                        case 10:
-                            gridItem.innerHTML = "10";
-                            break;
-                        default:
-                            break;
-                    }
+                    if (j > 0) gridItem.innerHTML = j;
                 }
             } else gridItem.setAttribute('id', "Casilla_"+filaToLetra[i]+","+j+"_"+idUnidadTablero);
 

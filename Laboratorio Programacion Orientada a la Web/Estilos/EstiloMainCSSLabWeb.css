@@ -18,6 +18,7 @@
     aspect-ratio: 1;
     height: auto;
     margin-right: 5px;
+    
 }
 #Portaaviones {
     max-width: 300px;
@@ -89,8 +90,14 @@
     background-color: rgb(240, 248, 255, 75%);
 }
 .casilla:hover{
-    background-color: rgba(255, 136, 152, 0.7);
+    background-color: rgba(142, 242, 255, 0.7);
     cursor: pointer;
+}
+.hit_space{
+    background-color: rgb(212, 7, 7);
+}
+.water_space{
+    background-color: rgb(153, 144, 144);
 }
 .BLANK{
     border: none;
