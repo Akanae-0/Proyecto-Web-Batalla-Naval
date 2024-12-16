@@ -1,14 +1,20 @@
 const gameSection = document.getElementById("Seccion_Tableros");
-const asideSection = document.getElementById("Barcos_Lado")
+const asideSection = document.getElementById("Barcos_Lado");
+const btnLogin = document.getElementById("Boton_Ingresar");
+const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
+const btnPlay = document.getElementById("Boton_Jugar");
+const userNameCard = document.getElementById("Nombre_Usuario");
 
 // Create a grid, for example, 5x5
+var keyUsuario = -1;
 const rows = 11;
 const columns = 11;
 const numeroTableros = 2;
 const numeroBarcos = 5;
 let gameBoardPlayerTitle = "";
 const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-const barcosJuego = [
+const imgBarcos = ["BattleShip_Lab_Assets/Portaaviones_5_Cas.png", "BattleShip_Lab_Assets/Acorazado_4_Cas.png", "BattleShip_Lab_Assets/Crucero_3_Cas.png", "BattleShip_Lab_Assets/Submarino_3_Cas.png", "BattleShip_Lab_Assets/Destructor_2_Cas.png"];
+/*const barcosJuego = [
     {
         name: "Portaaviones",
         source: "BattleShip_Lab_Assets/Portaaviones_5_Cas.png",
@@ -34,9 +40,99 @@ const barcosJuego = [
         source: "BattleShip_Lab_Assets/Destructor_2_Cas.png",
         spaces: 2
     }
-]
+]*/
 
+function cargarBarcos(listaBarcos){
+    for (let barco of listaBarcos){
+        let barcoCreando = document.createElement("img");
+        barcoCreando.setAttribute("id", barco.name);
+        switch (barco.name){
+            case "Portaaviones":
+                barcoCreando.setAttribute("src", imgBarcos[0]);
+                break;
+            case "Acorazado":
+                barcoCreando.setAttribute("src", imgBarcos[1]);
+                break;
+            case "Crucero":
+                barcoCreando.setAttribute("src", imgBarcos[2]);
+                break;
+            case "Submarino":
+                barcoCreando.setAttribute("src", imgBarcos[3]);
+                break;
+            case "Destructor":
+                barcoCreando.setAttribute("src", imgBarcos[4]);
+                break;
+        }
+        barcoCreando.setAttribute("alt", barco.name);
+        barcoCreando.classList.add("Barco");
+        asideSection.appendChild(barcoCreando);
+    }
+}
 
+async function getDataBarcos() {
+    let url = "https://program-web-taller-4-production.up.railway.app/boats";
+    try {
+      let responseBarcosFetch = await fetch(url, {
+        method: "GET"
+      });
+      if (!responseBarcosFetch.ok) {
+        throw new Error(`Response status: ${responseBarcosFetch.status}`);
+      }
+      
+      let jsonBarcos = await responseBarcosFetch.json();
+      let arrayBarcos = jsonBarcos.boats;
+      cargarBarcos(arrayBarcos); 
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+
+async function getUsernameValue(nombreUsuario){
+    let url = "https://program-web-taller-4-production.up.railway.app/login";
+    let nombreUsuarioCopy = nombreUsuario;
+    let cuerpoPost = JSON.stringify({ username: nombreUsuario });
+    let myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    let requestLogin =  {
+        method: 'POST',
+        headers: myHeaders,
+        body: cuerpoPost,
+        redirect: 'follow'
+    };
+
+    try {
+        let responseLogin = await fetch("https://program-web-taller-4-production.up.railway.app/login", requestLogin);
+        if (!responseLogin.ok) {
+            throw new Error(`Response status: ${responseLogin.status}`);
+        }
+        let parsedResponse = await responseLogin.json();
+        keyUsuario = parsedResponse.key;
+        btnLogin.style.display = "none";
+        textoIngresarUsuario.style.display = "none";
+        btnPlay.style.display = "block";
+        userNameCard.innerHTML = nombreUsuarioCopy;
+        userNameCard.style.display = "block";
+    } catch (error) {
+        console.error(error.message);
+        textoIngresarUsuario.value = "Usuario Invalido";
+    }
+}
+
+btnLogin.addEventListener("click", () => {
+    let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
+    let nombreUsuarioString = nombreUsuario.value;
+    getUsernameValue(nombreUsuarioString);
+});
+
+btnPlay.addEventListener("click", () => {
+    let socketServer = new WebSocket("ws://program-web-taller-4-production.up.railway.app");
+    socketServer.addEventListener("open", (event) => {
+        socketServer.send(keyUsuario);
+    })
+    socketServer.addEventListener("message", (event) => {
+        console.log("Mesaje del Servidor: ", event.data);
+    })
+})
 
 for (let x = 0; x < numeroTableros; x++) {
 
@@ -92,11 +188,5 @@ for (let x = 0; x < numeroTableros; x++) {
     gameSection.appendChild(unidadTableroCreacion);
 }
 
-for (let barco of barcosJuego){
-    let barcoCreando = document.createElement("img");
-    barcoCreando.setAttribute("id", barco.name);
-    barcoCreando.setAttribute("src", barco.source);
-    barcoCreando.setAttribute("alt", barco.name);
-    barcoCreando.classList.add("Barco");
-    asideSection.appendChild(barcoCreando);
-}
+getDataBarcos();
+
