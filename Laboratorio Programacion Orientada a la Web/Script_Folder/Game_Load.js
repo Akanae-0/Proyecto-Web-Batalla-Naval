@@ -1,6 +1,7 @@
 const gameSection = document.getElementById("Seccion_Tableros");
 const asideSection = document.getElementById("Barcos_Lado")
 
+var loggeado = false;
 // Create a grid, for example, 5x5
 const rows = 11;
 const columns = 11;
@@ -108,5 +109,4 @@ function IniciarJuego() {
     CrearTableros();
     CargarBarcos();
 }
-
 

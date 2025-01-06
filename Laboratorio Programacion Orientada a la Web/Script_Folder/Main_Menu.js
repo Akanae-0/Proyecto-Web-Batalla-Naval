@@ -1,4 +1,4 @@
-import IniciarJuego from './Game_Load.js';
+import { IniciarJuego } from './Game_Load.js';
 
 function login(username, password) {
     // Dummy user data for demonstration purposes
