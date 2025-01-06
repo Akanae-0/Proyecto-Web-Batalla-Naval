@@ -19,5 +19,3 @@ function login(username, password) {
 // Example usage
 login('user123', 'password123'); // Should log 'Login successful!'
 login('user123', 'wrongpassword'); // Should log 'Invalid username or password.'
-
-IniciarJuego(); // Should log 'Iniciando juego' and create game board and ships 

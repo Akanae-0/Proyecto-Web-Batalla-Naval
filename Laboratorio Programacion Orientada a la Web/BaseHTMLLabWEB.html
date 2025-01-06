@@ -18,15 +18,17 @@
     <header>
         <nav class="Barra_Superior">
             <div class="Usuario_Juego_Botones">
-                <input type="text" id="Input_Nombre_Usuario" class="Input_Usuario"> <!--Username-->
-                <button class="Boton_Ingresar">Ingresar</button>
-                <button class="Boton_Jugar">Jugar</button>
+                <input type="text" id="Input_Nombre_Usuario"> <!--Username-->
+                <button id="Boton_Ingresar">Ingresar</button>
+                <p id="Nombre_Usuario">Default</p>
+                <button id="Boton_Jugar">Jugar</button>
             </div>
-            <div class="Acceso_Directo_Instrucciones"><a href="#Contenido_Footer_Instrucciones_Titulo"
+            <div id="Acceso_Directo_Instrucciones"><a href="#Contenido_Footer_Instrucciones_Titulo"
                     id="Contenido_Footer_Instrucciones_Titulo_To_Footer">Instrucciones</a>
             </div>
         </nav>
     </header>
+    <main id="Menu_Holder"></main>
     <main id="Ventana_Principal_Juego">
         
         <section class="tableros" id="Seccion_Tableros">
@@ -51,8 +53,8 @@
             laboriosam quae velit nihil hic atque sequi? Velit nisi laudantium, adipisci asperiores ea unde molestiae
             accusantium amet cumque ipsum.</p>
     </footer>
-    <script type="module" src="Script_Folder/Game_Load.js"></script>
-    <script src="Script_Folder/Main_Menu.js"></script>
+    
+    <script src="Script_Folder/Game_Load.js"></script>
 </body>
 
 </html>

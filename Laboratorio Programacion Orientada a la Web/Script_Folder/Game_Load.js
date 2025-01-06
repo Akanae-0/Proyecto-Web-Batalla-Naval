@@ -1,5 +1,9 @@
 const gameSection = document.getElementById("Seccion_Tableros");
 const asideSection = document.getElementById("Barcos_Lado")
+const btnLogin = document.getElementById("Boton_Ingresar");
+const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
+const btnPlay = document.getElementById("Boton_Jugar");
+const userNameCard = document.getElementById("Nombre_Usuario");
 
 var loggeado = false;
 // Create a grid, for example, 5x5
@@ -110,3 +114,26 @@ function IniciarJuego() {
     CargarBarcos();
 }
 
+  function getUsernameValue(nombreUsuario){
+    btnLogin.style.display = "none";
+    textoIngresarUsuario.style.display = "none";
+    btnPlay.style.display = "block";
+    userNameCard.innerHTML = nombreUsuario;
+    userNameCard.style.display = "block";
+    loggeado = true;
+}
+
+btnLogin.addEventListener("click", () => {
+    let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
+    let nombreUsuarioString = nombreUsuario.value;
+    getUsernameValue(nombreUsuarioString);
+});
+
+btnPlay.addEventListener("click", () => {
+    let VentanaJuego = document.getElementById("Ventana_Principal_Juego");
+    let MenuHolder = document.getElementById("Menu_Holder");
+    VentanaJuego.style.display = "flex";
+    MenuHolder.style.display = "none";
+    IniciarJuego();
+    btnPlay.style.display = "none";
+})

@@ -1,7 +1,16 @@
+#Menu_Holder {
+    display: block;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: 0;
+    padding-top: 60px;
+    width: 100%;
+    min-height: 100vh;
+}
 #Ventana_Principal_Juego {
     flex: 1;
     padding-top: 60px;
-    display: flex;
+    display: none;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 }
