@@ -131,3 +131,14 @@
     background-color: transparent;
     cursor: default;
 }
+
+.parte-barco {
+    width: 100%;      /* Ajusta el ancho de la imagen al 100% del div */
+    height: 100%;     /* Ajusta la altura de la imagen al 100% del div */
+    object-fit: contain;  /* Asegura que la imagen se ajuste correctamente sin deformarse */
+}
+
+.vertical {
+    transform: rotate(90deg);  /* Rota la imagen 90 grados */
+    transform-origin: center;  /* Asegura que la rotación se haga desde el centro */
+}

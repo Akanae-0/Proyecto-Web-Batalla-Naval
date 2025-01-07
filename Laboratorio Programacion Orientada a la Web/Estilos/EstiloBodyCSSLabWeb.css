@@ -6,3 +6,12 @@ body {
     min-height:100vh;
     flex-direction:column;
 }
+
+.dragging {
+    opacity: 0.5;
+}
+
+.dragover {
+    background-color: rgb(69, 97, 174) !important;
+    text-align: center;
+}
