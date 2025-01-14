@@ -400,6 +400,4 @@ function extractValues(str) {
     } else {
         return null;
     }
-=======
->>>>>>> 8233bb140e8b394c3d67f07209fd003130159142
 }
