@@ -96,8 +96,6 @@ function CrearTableros() {
                     
                 }
 
-                } else gridItem.setAttribute('id', "Casilla_"+filaToLetra[i]+","+(j-1)+"_"+idUnidadTablero);
-
                 // Append the grid item to the body
                 tableroCreacion.appendChild(gridItem);
             }
