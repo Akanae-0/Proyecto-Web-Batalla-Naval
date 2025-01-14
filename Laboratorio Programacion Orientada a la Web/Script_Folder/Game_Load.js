@@ -90,15 +90,14 @@ function CrearTableros() {
                     if (i == 0) {
                         if (j > 0) gridItem.innerHTML = (j-1);
                     }
-<<<<<<< HEAD
+
                 } else {
                     gridItem.setAttribute('id', "Casilla_"+filaToLetra[i]+","+(j-1)+"_"+idUnidadTablero);
                     
                 }
-=======
+
                 } else gridItem.setAttribute('id', "Casilla_"+filaToLetra[i]+","+(j-1)+"_"+idUnidadTablero);
-    
->>>>>>> 8233bb140e8b394c3d67f07209fd003130159142
+
                 // Append the grid item to the body
                 tableroCreacion.appendChild(gridItem);
             }
@@ -374,7 +373,6 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion) {
             }
         }
     }
-<<<<<<< HEAD
 }
 
 function seleccionarCasillaDisparo(gridItem) {
