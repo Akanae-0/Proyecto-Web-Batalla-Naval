@@ -1,12 +1,26 @@
 
 const gameSection = document.getElementById("Seccion_Tableros");
-const asideSection = document.getElementById("Barcos_Lado")
+const asideSection = document.getElementById("Barcos_Lado");
+const gameButonSection = document.getElementById("Botones_In_Game")
 const btnLogin = document.getElementById("Boton_Ingresar");
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
 const userNameCard = document.getElementById("Nombre_Usuario");
+const arrayBarcoToNumero = ["Portaaviones", "Acorazado", "Crucero", "Submarino", "Destructor"]
 
 var loggeado = false;
+var matrizBarcosJugador = [
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0]
+]
 // Create a grid, for example, 5x5
 const rows = 11;
 const columns = 11;
@@ -25,7 +39,7 @@ const barcosJuego = [
         name: "Acorazado",
         source: "BattleShip_Lab_Assets/Acorazado_4_Cas.png",
         spaces: 4,
-        orientation: "vertical"
+        orientation: "horizontal"
     },
     {
         name: "Crucero",
@@ -37,7 +51,7 @@ const barcosJuego = [
         name: "Submarino",
         source: "BattleShip_Lab_Assets/Submarino_3_Cas.png",
         spaces: 3,
-        orientation: "vertical"
+        orientation: "horizontal"
     },
     {
         name: "Destructor",
@@ -130,10 +144,41 @@ function CargarBarcos() {
     }
 }
 
+function cargarBotonesBarcos(){
+    let botonRotarBarcos = document.createElement("button");
+    botonRotarBarcos.setAttribute("id", "Boton_Rotar_Barcos");
+    botonRotarBarcos.innerHTML = "Rotar";
+    botonRotarBarcos.classList.add("boton_accion_juego");
+    botonRotarBarcos.addEventListener("click", () => {
+        let barcosA = document.getElementsByClassName('contenedorBarco');
+        let barcosB = document.getElementsByClassName('Barco');
+        for (let i = 0; i < barcosA.length; i++) {
+            let orientacion = '';
+            if (barcosA[i].dataset.orientation === "horizontal") orientacion = "vertical";
+            else orientacion = "horizontal";
+            barcosA[i].setAttribute("data-orientation", orientacion);
+            barcosB[i].setAttribute("orientation", orientacion);
+        }
+    })
+    gameButonSection.appendChild(botonRotarBarcos);
+}
+
+function cargarBotonConfirmarPosisiones(){
+    let botonRotarBarcos = document.createElement("button");
+    botonRotarBarcos.setAttribute("id", "Confirmar_Posicion_Barcos");
+    botonRotarBarcos.classList.add("boton_accion_juego");
+    botonRotarBarcos.innerHTML = "Listo";
+    gameButonSection.appendChild(botonRotarBarcos);
+}
+
+
+
 function IniciarJuego() {
     console.log("Iniciando juego");
     CrearTableros();
     CargarBarcos();
+    cargarBotonesBarcos();
+    cargarBotonConfirmarPosisiones();
 }
 
 function getUsernameValue(nombreUsuario){
@@ -158,10 +203,6 @@ btnPlay.addEventListener("click", async () => {
     MenuHolder.style.display = "none";
     IniciarJuego();
     btnPlay.style.display = "none";
-    // let scriptTag = document.createElement("script");
-    // scriptTag.src = "./Barcos_Drag_Function.js";
-    // scriptTag.setAttribute("id", "Script_Barcos_Drag")
-    // document.body.appendChild(scriptTag);
     hacerBarcosArrastrables();      // Configura drag-and-drop para los barcos
     configurarTableroDragAndDrop(); // Configura el tablero para aceptar barcos
 })
@@ -266,7 +307,7 @@ function configurarTableroDragAndDrop() {
 
                 // Lógica para colocar el barco en la casilla
                 if (puedeColocarseBarco(casilla.id, datosBarco.spaces, datosBarco.orientation)) {
-                    colocarBarco(casilla.id, datosBarco.spaces, datosBarco.orientation);
+                    colocarBarco(casilla.id, datosBarco.spaces, datosBarco.orientation, datosBarco.name);
                     barcoArrastrado.remove(); // Elimina el barco del aside
                     barcoArrastrado=null;
                 } else {
@@ -331,7 +372,16 @@ function puedeColocarseBarco(casillaInicial, tamanoBarco, direccion) {
     return true;
 }
 
-function colocarBarco(casillaInicial, tamanoBarco, direccion) {
+function guardarPosicionBarcoEnMatriz(fila, columna, barco){
+    for (i = 0; i < arrayBarcoToNumero.length; i++){
+        if (barco === arrayBarcoToNumero[i]){
+            matrizBarcosJugador[fila-1][columna] = (i+1);
+        }
+    }
+    console.log(matrizBarcosJugador);
+}
+
+function colocarBarco(casillaInicial, tamanoBarco, direccion, tipoBarco) {
     let fila = filaToLetra.indexOf(casillaInicial[8])          // Aqui agarro el numero de la fila (paso de letra a su posicion en el arreglo)
     let columna = parseInt(casillaInicial[10])                 // Aqui agarro el numeor de la columna
     let numeroTablero = casillaInicial[20]                     // Aqui agarro en numero del tablero donde se solto el barco
@@ -353,6 +403,8 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion) {
             } else {
                 siguienteCasilla.innerHTML = `<img src="${cuerpo}" alt="Cuerpo" class="parte-barco">`;
             }
+
+            guardarPosicionBarcoEnMatriz(fila, (columna+i), tipoBarco);
         }
     }
 
@@ -369,6 +421,8 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion) {
             } else {
                 siguienteCasilla.innerHTML = `<img src="${cuerpo}" alt="Cuerpo" class="parte-barco vertical">`;
             }
+
+            guardarPosicionBarcoEnMatriz((fila+i), columna, tipoBarco);
         }
     }
 }
