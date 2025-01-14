@@ -90,8 +90,15 @@ function CrearTableros() {
                     if (i == 0) {
                         if (j > 0) gridItem.innerHTML = (j-1);
                     }
+<<<<<<< HEAD
+                } else {
+                    gridItem.setAttribute('id', "Casilla_"+filaToLetra[i]+","+(j-1)+"_"+idUnidadTablero);
+                    
+                }
+=======
                 } else gridItem.setAttribute('id', "Casilla_"+filaToLetra[i]+","+(j-1)+"_"+idUnidadTablero);
     
+>>>>>>> 8233bb140e8b394c3d67f07209fd003130159142
                 // Append the grid item to the body
                 tableroCreacion.appendChild(gridItem);
             }
@@ -367,4 +374,32 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion) {
             }
         }
     }
+<<<<<<< HEAD
+}
+
+function seleccionarCasillaDisparo(gridItem) {
+    // Solo añadir event listener a las casillas del oponente
+    gridItem.addEventListener('click', function() {
+        let selectedCellId = this.id;
+        this.innerHTML = "X"; // Marcar la casilla con una "X"
+        console.log('Selected cell:', selectedCellId);
+        let coordenadas = extractValues(selectedCellId);
+    });
+    
+}
+
+function extractValues(str) {
+    let regex = /^Casilla_([A-J]),([0-9]+)_TABLERO_([A-Z]+)$/;
+    let match = str.match(regex);
+    if (match) {
+        let letter = match[1];
+        let number = match[2];
+        let tablero = match[3];
+        let letterIndex = filaToLetra.indexOf(letter);
+        return { letterIndex, number, tablero };
+    } else {
+        return null;
+    }
+=======
+>>>>>>> 8233bb140e8b394c3d67f07209fd003130159142
 }
