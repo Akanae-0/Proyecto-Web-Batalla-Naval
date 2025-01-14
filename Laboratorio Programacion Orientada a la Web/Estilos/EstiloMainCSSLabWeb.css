@@ -1,7 +1,16 @@
+#Menu_Holder {
+    display: block;
+    padding: 0px;
+    background-color: rgba(255, 255, 255, 0.9);
+    top: 0;
+    padding-top: 60px;
+    width: 100%;
+    min-height: 100vh;
+}
 #Ventana_Principal_Juego {
     flex: 1;
     padding-top: 60px;
-    display: flex;
+    display: none;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 }
@@ -121,4 +130,15 @@
 .casilla_vacia:hover{
     background-color: transparent;
     cursor: default;
+}
+
+.parte-barco {
+    width: 100%;      /* Ajusta el ancho de la imagen al 100% del div */
+    height: 100%;     /* Ajusta la altura de la imagen al 100% del div */
+    object-fit: contain;  /* Asegura que la imagen se ajuste correctamente sin deformarse */
+}
+
+.vertical {
+    transform: rotate(90deg);  /* Rota la imagen 90 grados */
+    transform-origin: center;  /* Asegura que la rotación se haga desde el centro */
 }
