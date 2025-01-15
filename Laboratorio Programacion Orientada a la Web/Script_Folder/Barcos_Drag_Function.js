@@ -199,7 +199,7 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion, tipoBarco) {
                 siguienteCasilla.innerHTML = `<img src="${cuerpo}" alt="Cuerpo" class="parte-barco">`;
             }
 
-            guardarPosicionBarcoEnMatriz(fila, (columna+i), tipoBarco);
+            // guardarPosicionBarcoEnMatriz(fila, (columna+i), tipoBarco);
         }
     }
 
@@ -217,7 +217,7 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion, tipoBarco) {
                 siguienteCasilla.innerHTML = `<img src="${cuerpo}" alt="Cuerpo" class="parte-barco vertical">`;
             }
 
-            guardarPosicionBarcoEnMatriz((fila+i), columna, tipoBarco);
+            // guardarPosicionBarcoEnMatriz((fila+i), columna, tipoBarco);
         }
     }
 }
