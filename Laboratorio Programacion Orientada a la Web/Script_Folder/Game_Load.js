@@ -1,7 +1,7 @@
-
+const bodyDocumento = document.body;
 const gameSection = document.getElementById("Seccion_Tableros");
 const asideSection = document.getElementById("Barcos_Lado");
-const gameButonSection = document.getElementById("Botones_In_Game")
+const gameButonSection = document.getElementById("Botones_In_Game");
 const btnLogin = document.getElementById("Boton_Ingresar");
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
@@ -25,7 +25,7 @@ var matrizBarcosJugador = [
 const rows = 11;
 const columns = 11;
 const numeroTableros = 2;
-const numeroBarcos = 5;
+//const numeroBarcos = 5;
 let gameBoardPlayerTitle = "";
 const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 const barcosJuego = [
@@ -201,8 +201,14 @@ btnPlay.addEventListener("click", async () => {
     let MenuHolder = document.getElementById("Menu_Holder");
     VentanaJuego.style.display = "flex";
     MenuHolder.style.display = "none";
-    IniciarJuego();
     btnPlay.style.display = "none";
+    IniciarJuego();
+    /* let CargarJuegoJS = document.createElement("script");
+    CargarJuegoJS.src = "Script_Folder/User_Logged_Pre_Game.js";
+    CargarJuegoJS.type = "text/javascript";
+    CargarJuegoJS.async = true;
+    CargarJuegoJS.setAttribute("id", "CargarJuegoJS");
+    bodyDocumento.appendChild(CargarJuegoJS); */
     hacerBarcosArrastrables();      // Configura drag-and-drop para los barcos
     configurarTableroDragAndDrop(); // Configura el tablero para aceptar barcos
 })
@@ -372,14 +378,14 @@ function puedeColocarseBarco(casillaInicial, tamanoBarco, direccion) {
     return true;
 }
 
-function guardarPosicionBarcoEnMatriz(fila, columna, barco){
+/* function guardarPosicionBarcoEnMatriz(fila, columna, barco){
     for (i = 0; i < arrayBarcoToNumero.length; i++){
         if (barco === arrayBarcoToNumero[i]){
             matrizBarcosJugador[fila-1][columna] = (i+1);
         }
     }
     console.log(matrizBarcosJugador);
-}
+} */
 
 function colocarBarco(casillaInicial, tamanoBarco, direccion, tipoBarco) {
     let fila = filaToLetra.indexOf(casillaInicial[8])          // Aqui agarro el numero de la fila (paso de letra a su posicion en el arreglo)

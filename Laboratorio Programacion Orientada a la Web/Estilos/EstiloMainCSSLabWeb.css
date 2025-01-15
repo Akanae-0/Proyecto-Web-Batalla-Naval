@@ -70,7 +70,8 @@
 .boton_accion_juego{
     max-width: 250px;
     min-width: 75px;
-    aspect-ratio: 1;
+    max-height: 80px;
+    min-height: 40px;
     background-color: rgb(3, 252, 177);
     font-weight: bold;
     font-family: Palatino, URW Palladio L, serif;
