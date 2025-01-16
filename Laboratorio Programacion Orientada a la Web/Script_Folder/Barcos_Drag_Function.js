@@ -3,6 +3,7 @@ function hacerBarcosArrastrables() {
     barcosDOM.forEach( barco => {                                    // Recorre la lista con los barcos, "barco" es el nodo que se este recorriendo
         barco.setAttribute("draggable", "true");                     // Activa que el elemento sea arrastrable 
         // INICIA EL ARRASTRADO
+        
         barco.addEventListener("dragstart", (e) => {                 // Al arrastrar un elemento que se le asigno draggable = true, se dispara un evento  "(e)" dragstart
             barcoArrastrado = barco;                                 // Guarda el elemento del barco arrastrado
             e.dataTransfer.setData("text/plain", JSON.stringify({    // e.dataTransfer es un objeto que almacena la informacion necesaria del evento
@@ -98,6 +99,14 @@ function configurarTableroDragAndDrop() {
 
                 // Lógica para colocar el barco en la casilla
                 if (puedeColocarseBarco(casilla.id, datosBarco.spaces, datosBarco.orientation)) {
+                    for (let i = 0; i < barcosJuego.length; i++) {
+                        if (barcosJuego[i].name === datosBarco.name) {
+                            let casillaNumero = casilla.id[10] - 1 + 2;
+                            barcosJuego[i].casillaOcupada  = '' + casilla.id[8] + casillaNumero;
+                            break;
+                        }
+                    }
+                    console.log("Barcos juego:", barcosJuego);
                     colocarBarco(casilla.id, datosBarco.spaces, datosBarco.orientation);
                     barcoArrastrado.remove(); // Elimina el barco del aside
                     barcoArrastrado=null;

@@ -1,45 +1,3 @@
-/*//documento
-const gameSection = document.getElementById("Seccion_Tableros");
-const asideSection = document.getElementById("Barcos_Lado");
-const gameButonSection = document.getElementById("Botones_In_Game");
-const bodyDocumento = document.body;
-//Tableros
-const rows = 11;
-const columns = 11;
-const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-const barcosJuego = [
-    {
-        name: "Portaaviones",
-        source: "BattleShip_Lab_Assets/Portaaviones_5_Cas.png",
-        spaces: 5,
-        orientation: "horizontal"
-    },
-    {
-        name: "Acorazado",
-        source: "BattleShip_Lab_Assets/Acorazado_4_Cas.png",
-        spaces: 4,
-        orientation: "horizontal"
-    },
-    {
-        name: "Crucero",
-        source: "BattleShip_Lab_Assets/Crucero_3_Cas.png",
-        spaces: 3,
-        orientation: "horizontal"
-    },
-    {
-        name: "Submarino",
-        source: "BattleShip_Lab_Assets/Submarino_3_Cas.png",
-        spaces: 3,
-        orientation: "horizontal"
-    },
-    {
-        name: "Destructor",
-        source: "BattleShip_Lab_Assets/Destructor_2_Cas.png",
-        spaces: 2,
-        orientation: "horizontal"
-    }
-]*/
-
 function CrearTableroJugador() {
 
     let unidadTableroCreacion = document.createElement("section");
@@ -77,7 +35,7 @@ function CrearTableroJugador() {
                     if (i > 0) gridItem.innerHTML = filaToLetra[i];
                 }
                 if (i == 0) {
-                    if (j > 0) gridItem.innerHTML = (j-1);
+                    if (j > 0) gridItem.innerHTML = (j);
                 }
 
             } else {
