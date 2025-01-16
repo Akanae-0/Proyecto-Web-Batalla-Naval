@@ -14,12 +14,17 @@
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 }
+#Aside{
+    display: flex;
+    flex-direction: column;
+}
 /*Need js to work around ships size relative to board*/
 #Barcos_Lado{
     background-color: rgb(184, 164, 164, 90%);
     flex: 1;
     margin-left: 0;
     min-width: 180px;
+    height: auto;
 }
 .Barco{
     max-height: 60px;
@@ -53,6 +58,26 @@
     max-width: 120px;
     min-width: 60px;
     width: calc(100% - 60%);
+}
+#Botones_In_Game{
+    min-width: 180px;
+    background-color: rgb(204, 193, 219);
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.boton_accion_juego{
+    max-width: 250px;
+    min-width: 75px;
+    max-height: 80px;
+    min-height: 40px;
+    background-color: rgb(3, 252, 177);
+    font-weight: bold;
+    font-family: Palatino, URW Palladio L, serif;
+    font-size: large;
+    border-radius: 10px;
+    margin: 5px;
 }
 .tableros{
     flex: 5;
