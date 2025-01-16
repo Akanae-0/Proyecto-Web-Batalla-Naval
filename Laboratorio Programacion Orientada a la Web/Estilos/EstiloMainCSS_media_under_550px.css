@@ -2,6 +2,7 @@
     #Barcos_Lado{
         min-height: 110px;
         display: grid;
+        width: 100vw;
         grid-template: 
             "PA PA PA PA PA AC AC AC AC" 45px
             "CR CR CR SB SB SB DT DT ." 45px ;

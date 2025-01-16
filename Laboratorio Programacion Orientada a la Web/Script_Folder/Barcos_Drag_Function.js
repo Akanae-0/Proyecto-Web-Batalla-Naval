@@ -1,9 +1,5 @@
-// FUNCIONES DEL DRAG AND DROP (arrastrar barcos al tablero)
-
-// Hacer los barcos "arrastrables"
-
 function hacerBarcosArrastrables() {
-    let barcosDOM = document.querySelectorAll(".contenedorBarco"); // Selecciona los elementos HTML con clase "Barco"
+    const barcosDOM = document.querySelectorAll(".contenedorBarco"); // Selecciona los elementos HTML con clase "Barco"
     barcosDOM.forEach( barco => {                                    // Recorre la lista con los barcos, "barco" es el nodo que se este recorriendo
         barco.setAttribute("draggable", "true");                     // Activa que el elemento sea arrastrable 
         // INICIA EL ARRASTRADO
@@ -97,12 +93,12 @@ function configurarTableroDragAndDrop() {
             
             if (casilla.id[20] == 0){
                 // Obtén los datos del barco arrastrado
-                const datosBarco = JSON.parse(e.dataTransfer.getData("text/plain"));
+                let datosBarco = JSON.parse(e.dataTransfer.getData("text/plain"));
                 console.log("Barco colocado:", datosBarco);
 
                 // Lógica para colocar el barco en la casilla
                 if (puedeColocarseBarco(casilla.id, datosBarco.spaces, datosBarco.orientation)) {
-                    colocarBarco(casilla.id, datosBarco.spaces, datosBarco.orientation, datosBarco.name);
+                    colocarBarco(casilla.id, datosBarco.spaces, datosBarco.orientation);
                     barcoArrastrado.remove(); // Elimina el barco del aside
                     barcoArrastrado=null;
                 } else {
@@ -167,16 +163,7 @@ function puedeColocarseBarco(casillaInicial, tamanoBarco, direccion) {
     return true;
 }
 
-/* function guardarPosicionBarcoEnMatriz(fila, columna, barco){
-    for (i = 0; i < arrayBarcoToNumero.length; i++){
-        if (barco === arrayBarcoToNumero[i]){
-            matrizBarcosJugador[fila-1][columna] = (i+1);
-        }
-    }
-    console.log(matrizBarcosJugador);
-} */
-
-function colocarBarco(casillaInicial, tamanoBarco, direccion, tipoBarco) {
+function colocarBarco(casillaInicial, tamanoBarco, direccion) {
     let fila = filaToLetra.indexOf(casillaInicial[8])          // Aqui agarro el numero de la fila (paso de letra a su posicion en el arreglo)
     let columna = parseInt(casillaInicial[10])                 // Aqui agarro el numeor de la columna
     let numeroTablero = casillaInicial[20]                     // Aqui agarro en numero del tablero donde se solto el barco
@@ -198,8 +185,6 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion, tipoBarco) {
             } else {
                 siguienteCasilla.innerHTML = `<img src="${cuerpo}" alt="Cuerpo" class="parte-barco">`;
             }
-
-            // guardarPosicionBarcoEnMatriz(fila, (columna+i), tipoBarco);
         }
     }
 
@@ -216,13 +201,9 @@ function colocarBarco(casillaInicial, tamanoBarco, direccion, tipoBarco) {
             } else {
                 siguienteCasilla.innerHTML = `<img src="${cuerpo}" alt="Cuerpo" class="parte-barco vertical">`;
             }
-
-            // guardarPosicionBarcoEnMatriz((fila+i), columna, tipoBarco);
         }
     }
 }
 
-
-hacerBarcosArrastrables();      // Configura drag-and-drop para los barcos
-configurarTableroDragAndDrop(); // Configura el tablero para aceptar barcos
-console.log("Barcos arrastrables y tablero configurado para drag-and-drop");
+hacerBarcosArrastrables();
+configurarTableroDragAndDrop();
