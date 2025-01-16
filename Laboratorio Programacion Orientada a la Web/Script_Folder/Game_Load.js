@@ -1,3 +1,6 @@
+const io = io.connect('http://localhost:3000');
+
+
 const bodyDocumento = document.body;
 const gameSection = document.getElementById("Seccion_Tableros");
 const asideSection = document.getElementById("Barcos_Lado");
@@ -79,11 +82,15 @@ function getUsernameValue(nombreUsuario){
 }
 
 //Evento Login
-btnLogin.addEventListener("click", () => {
+btnLogin.addEventListener("click", async () => {
     let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
     let nombreUsuarioString = nombreUsuario.value;
     getUsernameValue(nombreUsuarioString);
-    let successfulLogin = true;
+    let successfulLogin = false;
+    //CONNECTION
+    io.emit('connect', nombreUsuarioString.trim());
+    await io.on('error', (data) => {
+    })
     if (successfulLogin === true){
         let VentanaJuego = document.getElementById("Ventana_Principal_Juego");
         let MenuHolder = document.getElementById("Menu_Holder");

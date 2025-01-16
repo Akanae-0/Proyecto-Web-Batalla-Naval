@@ -1,0 +1,27 @@
+{
+  "name": "proyecto-web-batalla-naval",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.21.2",
+    "node": "^22.13.0",
+    "node-bin-setup": "^1.1.3",
+    "nodemon": "^3.1.9",
+    "socket.io": "^4.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akanae-0/Proyecto-Web-Batalla-Naval.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Akanae-0/Proyecto-Web-Batalla-Naval/issues"
+  },
+  "homepage": "https://github.com/Akanae-0/Proyecto-Web-Batalla-Naval#readme",
+  "description": ""
+}
