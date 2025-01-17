@@ -1,13 +1,10 @@
-const socket = io("http://localhost:3000");
+/* import './Script_Folder/Barcos_Drag_Function.js';
+import './Script_Folder/Game_Start_Functions.js';
+import './Script_Folder/Main_Menu.js';
+import  './Script_Folder/User_Logged_Pre_Game.js'; */
 
-socket.on('connect', () => {
-    console.log('Connected to server');
-});
 
-socket.on('connect_error', (err) => {
-    console.error(`Connection error: ${err.message}`);
-});
-
+// REFERENCIAS A ELEMENTOS DEL DOM
 const bodyDocumento = document.body;
 const gameSection = document.getElementById("Seccion_Tableros");
 const asideSection = document.getElementById("Barcos_Lado");
@@ -16,13 +13,16 @@ const btnLogin = document.getElementById("Boton_Ingresar");
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
 const userNameCard = document.getElementById("Nombre_Usuario");
-const arrayBarcoToNumero = ["Portaaviones", "Acorazado", "Crucero", "Submarino", "Destructor"]
-
+// VARIABLES GLOBALES
+const arrayBarcoToNumero = ["Portaaviones", "Acorazado", "Crucero", "Submarino", "Destructor"];
+var username = "";
 var loggeado = false;
-// Create a grid, for example, 5x5
+var turnoJugador = false;
+var rivalUser = "";
+var gameSeaching = false;
+// VARIABLES DE JUEGO
 const rows = 11;
 const columns = 11;
-let gameBoardPlayerTitle = "";
 const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 const barcosJuego = [
     {
@@ -66,6 +66,59 @@ const barcosJuego = [
         idBarco: 1
     }
 ]
+var shipsJugada = {
+    username: "",
+    ships: []
+}
+
+
+//AQUI COLOCAMOS EL PUERTO DEL SOCKET EN EL FRONT
+const socket = io("http://localhost:3000");
+
+/* MANEJO DE EVENTOS DEL SOCKET */
+
+socket.on('connect', () => {
+    console.log('Connected to server');
+});
+
+socket.on('connect_error', (err) => {
+    console.error(`Connection error: ${err.message}`);
+});
+
+socket.on('error', (error) => {
+    if (error === "username in use") {
+        alert("username in use");
+        let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
+        nombreUsuario.value = "";
+        btnLogin.disabled = false;
+    }
+});
+
+socket.on('game-found', (rival) => {    
+   // GAME FOUND
+   rivalUser = rival.oponnent;
+   console.log("Rival encontrado:", rival);
+   let EmpezarPartidaJS = document.createElement("script");
+   EmpezarPartidaJS.src = "./Script_Folder/Game_Start_Functions.js";
+   EmpezarPartidaJS.type = "text/javascript";
+   EmpezarPartidaJS.async = true;
+   EmpezarPartidaJS.setAttribute("id", "EmpezarPartidaJS");
+   asideSection.style.display = "none";
+   btnPlay.style.display = "none";
+   let CargarJuegoJS = document.getElementById("CargarJuegoJS");
+   let DragScripts = document.getElementById("DraggableBoatsJS");
+   CargarJuegoJS.remove();
+   DragScripts.remove();
+   bodyDocumento.appendChild(EmpezarPartidaJS);
+});
+
+socket.on('turn', (userTurn) => {
+    if (userTurn === username) {
+        console.log("Es tu turno");
+    } else console.log("Turno del jugador: ", userTurn);
+});
+
+/* LOGICA DE LOS BOTONES */
 
 function getUsernameValue(nombreUsuario){
     btnLogin.style.display = "none";
@@ -73,74 +126,65 @@ function getUsernameValue(nombreUsuario){
     btnPlay.style.display = "block";
     userNameCard.innerHTML = nombreUsuario;
     userNameCard.style.display = "block";
+    username = nombreUsuario;
     loggeado = true;
 }
 
-socket.on('error', (error) => {
-    if (error === "username in use") {
-        alert("username in use");
-        let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
-        nombreUsuario.value = "";
-    }
-});
-
-//Evento Login
+//Evento click en Ingresar
 btnLogin.addEventListener("click", async () => {
     let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
     let nombreUsuarioString = nombreUsuario.value;
+    shipsJugada.username = nombreUsuarioString.trim();
+    console.log(shipsJugada);
     try {
         let successfulLogin = false;
         successfulLogin = await new Promise((resolve) => {
-            socket.emit('connect-user', nombreUsuarioString.trim());
-
+            // Manda el username al servidor
+            socket.emit('connect-user', shipsJugada.username);
             let onConfirm = (data) => {
                 if (data === "OK") {
                     resolve(true);
+                    console.log("Usuario loggeado:", shipsJugada.username);
                 } else {
                     resolve(false);
                 }
             };
 
+            //cuando recibe respuest "confirm", hace onConfirm
             socket.once('confirm', onConfirm);
         });
 
-        if (successfulLogin === true) {
-            getUsernameValue(nombreUsuarioString);
+        if (successfulLogin === true && !loggeado) {
+            // Si el loggeo salio bien, cambia la interfaz con los barcos tablero, username, etc...
+            getUsernameValue(shipsJugada.username);
             let VentanaJuego = document.getElementById("Ventana_Principal_Juego");
             let MenuHolder = document.getElementById("Menu_Holder");
             VentanaJuego.style.display = "flex";
             MenuHolder.style.display = "none";
             btnPlay.style.display = "block";
             let CargarJuegoJS = document.createElement("script");
-            CargarJuegoJS.src = "Script_Folder/User_Logged_Pre_Game.js";
+            CargarJuegoJS.src = "./Script_Folder/User_Logged_Pre_Game.js";
             CargarJuegoJS.type = "text/javascript";
             CargarJuegoJS.async = true;
             CargarJuegoJS.setAttribute("id", "CargarJuegoJS");
             bodyDocumento.appendChild(CargarJuegoJS);
+            btnLogin.disabled = true;
+            loggeado = true;
+            console.log("Usuario loggeado:", username);
         }
     } catch (error) {
         console.error("An error occurred during login:", error);
     }
 });
 
-//Evento Play
+//Evento click en Jugar
 btnPlay.addEventListener("click", async () => {
-    let barcosRestantes = document.querySelectorAll(".Barco");
-    if (barcosRestantes.length === 0){
-        //PlaceHolder
-        socket.emit
-
-        let EmpezarPartidaJS = document.createElement("script");
-        EmpezarPartidaJS.src = "Script_Folder/Game_Start_Functions.js";
-        EmpezarPartidaJS.type = "text/javascript";
-        EmpezarPartidaJS.async = true;
-        EmpezarPartidaJS.setAttribute("id", "EmpezarPartidaJS");
-        bodyDocumento.appendChild(EmpezarPartidaJS);
-        asideSection.style.display = "none";
-        btnPlay.style.display = "none";
-        let CargarJuegoJS = document.getElementById("CargarJuegoJS");
-        let DragScripts = document.getElementById("DraggableBoatsJS");
-        CargarJuegoJS.remove();
-        DragScripts.remove();
-    }
+    if (gameSeaching === false) {
+        gameSeaching = true;
+        let barcosRestantes = document.querySelectorAll(".Barco");
+        if (barcosRestantes.length === 0){
+            socket.emit('begin', shipsJugada);
+            console.log("Jugada a enviar:", shipsJugada);
+        } else alert("Aun tienes barcos por colocar");
+    } else (alert("Ya estas buscando partida"));
 });

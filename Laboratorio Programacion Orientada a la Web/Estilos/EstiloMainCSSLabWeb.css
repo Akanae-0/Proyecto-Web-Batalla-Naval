@@ -82,7 +82,8 @@
 .tableros{
     flex: 5;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: none;
     padding-left: 10px;
     flex-wrap: wrap;
