@@ -1,3 +1,7 @@
+import { bodyDocumento, asideSection } from "../Game_Load.js";
+import { barcosJuego, shipsJugada } from "../Game_Load.js";
+import { gameSection, gameButonSection, rows, columns, filaToLetra} from "../Game_Load.js";
+
 // Crear tablero de juego
 var tableroCreadoEstado = false;
 
@@ -6,7 +10,7 @@ function CrearTableroJugador() {
     let unidadTableroCreacion = document.createElement("section");
     unidadTableroCreacion.classList.add("Board_Unity");
 
-    gameBoardPlayerTitle = "JUGADOR";
+    let gameBoardPlayerTitle = "JUGADOR";
 
     unidadTableroCreacion.setAttribute('id', `TABLERO#0`);
     let idUnidadTablero = unidadTableroCreacion.id;
@@ -146,7 +150,7 @@ function cargarBotonConfirmarPosisiones(){
 function InsertarScriptMovimientoBarcos(){
     let DraggableBoatsJS = document.createElement("script");
     DraggableBoatsJS.src = "Script_Folder/Barcos_Drag_Function.js";
-    DraggableBoatsJS.type = "text/javascript";
+    DraggableBoatsJS.type = "module";
     DraggableBoatsJS.async = true;
     DraggableBoatsJS.setAttribute("id", "DraggableBoatsJS");
     bodyDocumento.appendChild(DraggableBoatsJS);

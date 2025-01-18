@@ -1,3 +1,7 @@
+import { gameSection, gameButonSection, rows, columns } from "../Game_Load.js";
+import { filaToLetra } from "../Game_Load.js";
+import { botonDisparo, turnoJugador, rivalUser } from "../Game_Load.js";
+
 var casillaSeleccionada = 'Z0';
 var casillaSeleccionadaId = '';
 

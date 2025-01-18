@@ -1,30 +1,30 @@
 
 // REFERENCIAS A ELEMENTOS DEL DOM
-const bodyDocumento = document.body;
-const gameSection = document.getElementById("Seccion_Tableros");
-const asideSection = document.getElementById("Barcos_Lado");
-const gameButonSection = document.getElementById("Botones_In_Game");
+const bodyDocumento = document.body; //2
+const gameSection = document.getElementById("Seccion_Tableros");  //2,3
+const asideSection = document.getElementById("Barcos_Lado");  //2
+const gameButonSection = document.getElementById("Botones_In_Game"); //2,3
 const btnLogin = document.getElementById("Boton_Ingresar");
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
 const userNameCard = document.getElementById("Nombre_Usuario");
-let botonDisparo; 
+let botonDisparo; // 3
 let casillaSeleccionadaDisparo; 
 let casillasRivales;
 
 
 // VARIABLES GLOBALES
-const arrayBarcoToNumero = ["Portaaviones", "Acorazado", "Crucero", "Submarino", "Destructor"];
+const arrayBarcoToNumero = ["Portaaviones", "Acorazado", "Crucero", "Submarino", "Destructor"]; //DELETE
 var username = "";
 var loggeado = false;
-var turnoJugador = false;
-var rivalUser = "";
+var turnoJugador = false; //3
+var rivalUser = ""; //3
 var gameSeaching = false;
 
 // VARIABLES DE JUEGO
-const rows = 11;
-const columns = 11;
-const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+const rows = 11; //2,3
+const columns = 11; //2,3
+const filaToLetra = ["", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]; //1,2,3
 const barcosJuego = [
     {
         name: "Portaaviones",
@@ -66,11 +66,11 @@ const barcosJuego = [
         casillaOcupada: 'Z0',
         idBarco: 1
     }
-]
+] //1,2
 var shipsJugada = {
     username: "",
     ships: []
-}
+} //1,2
 
 
 //AQUI COLOCAMOS EL PUERTO DEL SOCKET EN EL FRONT
@@ -101,7 +101,7 @@ socket.on('game-found', (rival) => {
    console.log("Rival encontrado:", rival);
    let EmpezarPartidaJS = document.createElement("script");
    EmpezarPartidaJS.src = "./Script_Folder/Game_Start_Functions.js";
-   EmpezarPartidaJS.type = "text/javascript";
+   EmpezarPartidaJS.type = "module";
    EmpezarPartidaJS.async = true;
    EmpezarPartidaJS.setAttribute("id", "EmpezarPartidaJS");
    asideSection.style.display = "none";
@@ -183,7 +183,7 @@ btnLogin.addEventListener("click", async () => {
             btnPlay.style.display = "block";
             let CargarJuegoJS = document.createElement("script");
             CargarJuegoJS.src = "./Script_Folder/User_Logged_Pre_Game.js";
-            CargarJuegoJS.type = "text/javascript";
+            CargarJuegoJS.type = "module";
             CargarJuegoJS.async = true;
             CargarJuegoJS.setAttribute("id", "CargarJuegoJS");
             bodyDocumento.appendChild(CargarJuegoJS);
@@ -276,7 +276,7 @@ function restartAfterGame(){
     nombreUsuario.value = "";
 }
 
-function mostrarMensaje(mensaje, icono) {
+export function mostrarMensaje(mensaje, icono) {
     Swal.fire({
       title: "Mensaje",
       text: mensaje,
@@ -289,3 +289,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("El DOM ha sido completamente cargado y procesado");
 });
 
+export { filaToLetra };
+export { barcosJuego, shipsJugada}; //1
+export { bodyDocumento, asideSection }; //2
+export { gameSection, gameButonSection, rows, columns }; //2,3
+export { botonDisparo, turnoJugador, rivalUser }; //3

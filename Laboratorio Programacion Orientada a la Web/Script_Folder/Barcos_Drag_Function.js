@@ -1,4 +1,10 @@
-function hacerBarcosArrastrables() {
+import { mostrarMensaje } from "../Game_Load.js";
+import { barcosJuego, shipsJugada } from "../Game_Load.js";
+import { filaToLetra } from "../Game_Load.js";
+
+var barcoArrastrado = null;
+
+export function hacerBarcosArrastrables() {
     const barcosDOM = document.querySelectorAll(".contenedorBarco");
     barcosDOM.forEach(barco => {
         barco.setAttribute("draggable", "true");
@@ -23,7 +29,7 @@ function hacerBarcosArrastrables() {
 }
 
 // Permitir arrastrar y soltar en el tablero
-function configurarTableroDragAndDrop() {
+export function configurarTableroDragAndDrop() {
     let casillas = document.querySelectorAll(".casilla");
 
     casillas.forEach(casilla => {
@@ -105,16 +111,16 @@ function configurarTableroDragAndDrop() {
                     barcoArrastrado.remove(); // Elimina el barco del aside
                     barcoArrastrado = null;
                 } else if (barcoArrastrado != null) {
-                    mostrarMensajeError('No se puede colocar el barco aquí.', 'error');
+                    mostrarMensaje('No se puede colocar el barco aquí.', 'error');
                 }
             } else {
-                mostrarMensajeError('No se puede colocar el barco aquí.\n Barco en el tablero rival', 'error');
+                mostrarMensaje('No se puede colocar el barco aquí.\n Barco en el tablero rival', 'error');
             }
         });
     });
 }
 
-function puedeColocarseBarco(casillaInicial, tamanoBarco, direccion) {
+export function puedeColocarseBarco(casillaInicial, tamanoBarco, direccion) {
     let fila = filaToLetra.indexOf(casillaInicial[8]);
     let columna = parseInt(casillaInicial[10]);
     let numeroTablero = casillaInicial[20];
@@ -140,7 +146,7 @@ function puedeColocarseBarco(casillaInicial, tamanoBarco, direccion) {
     return true;
 }
 
-function colocarBarco(casillaInicial, datosBarco, direccion) {
+export function colocarBarco(casillaInicial, datosBarco, direccion) {
     let fila = filaToLetra.indexOf(casillaInicial[8]);
     let columna = parseInt(casillaInicial[10]);
     let numeroTablero = casillaInicial[20];
