@@ -1,4 +1,5 @@
-import { IniciarJuego } from './Game_Load.js';
+// ELIMINAR
+
 
 function login(username, password) {
     // Dummy user data for demonstration purposes
@@ -8,10 +9,10 @@ function login(username, password) {
     };
 
     if (username === userData.username && password === userData.password) {
-        console.log('Login successful!');
+        //console.log('Login successful!');
         return true;
     } else {
-        console.log('Invalid username or password.');
+        //console.log('Invalid username or password.');
         return false;
     }
 }
@@ -30,10 +31,10 @@ const testString2 = "Casilla_J,5_TABLERO_JUGADOR";
 const testString3 = "Casilla_K,8_TABLERO_JUGADOR"; // Invalid
 const testString4 = "Casilla_A,3_TABLERO_ENEMIGO"; // Valid
 
-console.log(regex.test(testString1)); // Should log true
-console.log(regex.test(testString2)); // Should log true
-console.log(regex.test(testString3)); // Should log false
-console.log(regex.test(testString4)); // Should log true
+//console.log(regex.test(testString1)); // Should log true
+//console.log(regex.test(testString2)); // Should log true
+//console.log(regex.test(testString3)); // Should log false
+//console.log(regex.test(testString4)); // Should log true
 
 
 function extractValues(str) {
@@ -54,7 +55,7 @@ const values2 = extractValues("Casilla_J,5_TABLERO_JUGADOR");
 const values3 = extractValues("Casilla_K,8_TABLERO_JUGADOR"); // Invalid
 const values4 = extractValues("Casilla_A,3_TABLERO_ENEMIGO"); // Valid
 
-console.log(values1); // Should log { letter: 'B', number: '8' }
-console.log(values2); // Should log { letter: 'J', number: '5' }
-console.log(values3); // Should log null
-console.log(values4); // Should log { letter: 'A', number: '3' }
+//console.log(values1); // Should log { letter: 'B', number: '8' }
+//console.log(values2); // Should log { letter: 'J', number: '5' }
+//console.log(values3); // Should log null
+//console.log(values4); // Should log { letter: 'A', number: '3' }
