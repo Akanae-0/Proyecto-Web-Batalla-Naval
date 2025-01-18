@@ -1,8 +1,3 @@
-/* import './Script_Folder/Barcos_Drag_Function.js';
-import './Script_Folder/Game_Start_Functions.js';
-import './Script_Folder/Main_Menu.js';
-import  './Script_Folder/User_Logged_Pre_Game.js'; */
-
 
 // REFERENCIAS A ELEMENTOS DEL DOM
 const bodyDocumento = document.body;
@@ -13,6 +8,11 @@ const btnLogin = document.getElementById("Boton_Ingresar");
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
 const userNameCard = document.getElementById("Nombre_Usuario");
+let botonDisparo; 
+let casillaSeleccionadaDisparo; 
+let casillasRivales;
+
+
 // VARIABLES GLOBALES
 const arrayBarcoToNumero = ["Portaaviones", "Acorazado", "Crucero", "Submarino", "Destructor"];
 var username = "";
@@ -20,6 +20,7 @@ var loggeado = false;
 var turnoJugador = false;
 var rivalUser = "";
 var gameSeaching = false;
+
 // VARIABLES DE JUEGO
 const rows = 11;
 const columns = 11;
@@ -87,7 +88,7 @@ socket.on('connect_error', (err) => {
 
 socket.on('error', (error) => {
     if (error === "username in use") {
-        mostrarMensaje('username in use', 'error');   
+        mostrarMensaje('username in use', 'error');
         let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
         nombreUsuario.value = "";
         btnLogin.disabled = false;
@@ -113,12 +114,30 @@ socket.on('game-found', (rival) => {
 });
 
 socket.on('turn', (userTurn) => {
-    if (userTurn === username) {
-        console.log("Es tu turno");
-    } else console.log("Turno del jugador: ", userTurn);
+    turnoJugador = userTurn.turn == username;
+    habilitarMain();
 });
 
 /* LOGICA DE LOS BOTONES */
+
+function habilitarMain(){
+    if (turnoJugador == true){
+        // Habilitamos el boton de disparar y las casillas rivales
+        botonDisparo.disabled = false;
+        casillaSeleccionadaDisparo.disabled = false;
+        casillasRivales.forEach(casilla => { 
+            casilla.disabled = false; 
+        });
+    } else {
+        // Deshabilitamos el boton de disparar y las casillas rivales
+        botonDisparo.disabled = true;
+        casillaSeleccionadaDisparo.disabled = true;
+        casillasRivales.forEach(casilla => { 
+            casilla.disabled = true; 
+        });
+        casillaSeleccionadaDisparo.textContent = '';
+    }
+}
 
 function getUsernameValue(nombreUsuario){
     btnLogin.style.display = "none";
@@ -186,8 +205,76 @@ btnPlay.addEventListener("click", async () => {
             socket.emit('begin', shipsJugada);
             console.log("Jugada a enviar:", shipsJugada);
         } else mostrarMensaje('Aun tienes barcos por colocar', 'warning');
-    } else (mostrarMensaje('Ya estas buscando partida', 'info'));
+    } else ((mostrarMensaje('Ya estas buscando partida', 'info')));
 });
+
+// Funcion para inicializar botonDisparo cuando se agregue al DOM
+const checkElement = setInterval(() => {
+    botonDisparo = document.getElementById("Boton_Disparo");
+    if (botonDisparo) {
+        clearInterval(checkElement); // Detener el intervalo una vez que se encuentra el elemento
+        casillaSeleccionadaDisparo = document.getElementById("Casilla_Seleccionada_Show"); 
+        casillasRivales = document.querySelectorAll('[id*="TABLERO#1"]')
+        
+        botonDisparo.addEventListener('click', () => {
+            if (turnoJugador == false){
+                alert('Es turno del rival');
+            } else {
+                console.log("valor:", casillaSeleccionadaDisparo.textContent);
+                
+                if (casillaSeleccionadaDisparo.textContent === "") {
+                    console.log("vacio:", casillaSeleccionadaDisparo.textContent)
+                    //alert('Primero seleccione una casilla rival');
+                } else {
+                    console.log("no vacio:", casillaSeleccionadaDisparo.textContent)
+                    // logica del evento "play"
+                    // alert('Disparo enviado');
+
+                }
+                
+            }
+            
+        });
+
+        casillasRivales.forEach(casilla => {
+            casilla.addEventListener("click", (e) => {
+                e.stopPropagation();
+                console.log("mi turno =", turnoJugador);
+                if (turnoJugador == false){
+                    alert('Es turno del rival');
+                } else {
+                    let fila = filaToLetra.indexOf(casilla.id[8]);
+                    let columna = parseInt(casilla.id[10]);
+                    console.log(`${filaToLetra[fila]}${columna}`);
+                    casillaSeleccionadaDisparo.textContent = `${filaToLetra[fila]}${columna}`;
+                    console.log(casillaSeleccionadaDisparo.textContent)
+
+                }
+            });
+        });
+    }
+}, 100); // Verificar cada 100 milisegundos
+
+// Reestablece el estado inicial de la pagina
+function restartAfterGame(){
+    username = "";
+    loggeado = false;
+    turnoJugador = false;
+    rivalUser = "";
+    gameSeaching = false;
+    shipsJugada.username = "";
+    shipsJugada.ships = [];
+    VentanaJuego.style.display = "none";
+    MenuHolder.style.display = "block";
+    btnPlay.style.display = "none";
+    btnLogin.disabled = false;
+    loggeado = false;
+    asideSection.innerHTML = "";
+    gameButonSection.innerHTML = "";
+    gameSection.innerHTML = "";
+    let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
+    nombreUsuario.value = "";
+}
 
 function mostrarMensaje(mensaje, icono) {
     Swal.fire({
@@ -197,3 +284,8 @@ function mostrarMensaje(mensaje, icono) {
       confirmButtonText: "Aceptar",
     });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("El DOM ha sido completamente cargado y procesado");
+});
+

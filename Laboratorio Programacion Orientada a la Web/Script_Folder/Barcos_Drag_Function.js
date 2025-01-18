@@ -1,8 +1,3 @@
-/* let shipsJugada = {
-    username: "",
-    ships: []
-} */
-
 function hacerBarcosArrastrables() {
     const barcosDOM = document.querySelectorAll(".contenedorBarco");
     barcosDOM.forEach(barco => {
@@ -205,12 +200,3 @@ function colocarBarco(casillaInicial, datosBarco, direccion) {
 
 hacerBarcosArrastrables();
 configurarTableroDragAndDrop();
-
-function mostrarMensajeError(mensaje) {
-    Swal.fire({
-      title: "Mensaje",
-      text: mensaje,
-      icon: "error", // Cambia 'info' por 'success', 'error', 'warning', o 'question'
-      confirmButtonText: "Aceptar",
-    });
-}
