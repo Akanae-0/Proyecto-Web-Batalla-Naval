@@ -1,6 +1,6 @@
-import { bodyDocumento, asideSection } from "../Game_Load.js";
-import { barcosJuego, shipsJugada } from "../Game_Load.js";
-import { gameSection, gameButonSection, rows, columns, filaToLetra} from "../Game_Load.js";
+import { bodyDocumento, asideSection } from "./Game_Load.js";
+import { barcosJuego, shipsJugada } from "./Game_Load.js";
+import { gameSection, gameButonSection, rows, columns, filaToLetra} from "./Game_Load.js";
 
 // Crear tablero de juego
 var tableroCreadoEstado = false;

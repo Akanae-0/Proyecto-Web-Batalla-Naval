@@ -98,7 +98,7 @@ socket.on('game-found', (rival) => {
    rivalUser = rival.oponnent;
    console.log("Rival encontrado:", rival);
    let EmpezarPartidaJS = document.createElement("script");
-   EmpezarPartidaJS.src = "./scripts/Game_Start_Functions.js";
+   EmpezarPartidaJS.src = "/src/scripts/Game_Start_Functions.js";
    EmpezarPartidaJS.type = "module";
    EmpezarPartidaJS.async = true;
    EmpezarPartidaJS.setAttribute("id", "EmpezarPartidaJS");
@@ -180,7 +180,7 @@ btnLogin.addEventListener("click", async () => {
             MenuHolder.style.display = "none";
             btnPlay.style.display = "block";
             let CargarJuegoJS = document.createElement("script");
-            CargarJuegoJS.src = "./scripts/User_Logged_Pre_Game.js";
+            CargarJuegoJS.src = "/src/scripts/User_Logged_Pre_Game.js";
             CargarJuegoJS.type = "module";
             CargarJuegoJS.async = true;
             CargarJuegoJS.setAttribute("id", "CargarJuegoJS");

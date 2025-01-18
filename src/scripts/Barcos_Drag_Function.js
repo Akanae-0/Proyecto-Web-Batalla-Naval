@@ -1,6 +1,6 @@
-import { mostrarMensaje } from "../Game_Load.js";
-import { barcosJuego, shipsJugada } from "../Game_Load.js";
-import { filaToLetra } from "../Game_Load.js";
+import { mostrarMensaje } from "./Game_Load.js";
+import { barcosJuego, shipsJugada } from "./Game_Load.js";
+import { filaToLetra } from "./Game_Load.js";
 
 var barcoArrastrado = null;
 
