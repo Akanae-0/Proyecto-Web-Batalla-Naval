@@ -151,9 +151,9 @@ export function colocarBarco(casillaInicial, datosBarco, direccion) {
     let columna = parseInt(casillaInicial[10]);
     let numeroTablero = casillaInicial[20];
 
-    const proa = "BattleShip_Lab_Assets/Proa_barco.png";  
-    const cuerpo = "BattleShip_Lab_Assets/Cuerpo_barco.png";  
-    const popa = "BattleShip_Lab_Assets/Popa_barco.png";
+    const proa = "../../assets/Proa_barco.png";  
+    const cuerpo = "../../assets/Cuerpo_barco.png";  
+    const popa = "../../assets/Popa_barco.png";
 
     if (direccion == "horizontal") {
         for (let i = 0; i < datosBarco.spaces; i++) {

@@ -149,7 +149,7 @@ function cargarBotonConfirmarPosisiones(){
 // ...
 function InsertarScriptMovimientoBarcos(){
     let DraggableBoatsJS = document.createElement("script");
-    DraggableBoatsJS.src = "Script_Folder/Barcos_Drag_Function.js";
+    DraggableBoatsJS.src = "/src/scripts/Barcos_Drag_Function.js";
     DraggableBoatsJS.type = "module";
     DraggableBoatsJS.async = true;
     DraggableBoatsJS.setAttribute("id", "DraggableBoatsJS");
