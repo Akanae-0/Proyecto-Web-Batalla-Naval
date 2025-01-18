@@ -187,7 +187,7 @@ function colocarBarco(casillaInicial, datosBarco, direccion) {
     if ( datosBarco.name == "Destructor") barcoColocado=1;
 
     
-    let position = filaToLetra[fila]+ (columna).toString()
+    let position = filaToLetra[fila]+ (columna+1).toString()
     let vertical = false;
     if (direccion == "vertical") vertical = true;
     
