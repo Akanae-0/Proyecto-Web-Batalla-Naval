@@ -122,7 +122,6 @@ function cargarBotonConfirmarPosisiones(){
     botonResetBarcos.innerHTML = "Reordenar";
 
     botonResetBarcos.addEventListener("click", () =>{
-        //shipsJugada.username = "";
         shipsJugada.ships = [];
         let casillasMarcadas = document.querySelectorAll(".ocupado");
         casillasMarcadas.forEach(element => {

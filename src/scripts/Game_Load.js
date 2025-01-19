@@ -211,44 +211,6 @@ btnPlay.addEventListener("click", async () => {
 });
 
 // Funcion para inicializar botonDisparo cuando se agregue al DOM
-/*const checkElement = setInterval(() => {
-    botonDisparo = document.getElementById("Boton_Disparo");
-    if (botonDisparo) {
-        clearInterval(checkElement); // Detener el intervalo una vez que se encuentra el elemento
-        casillaSeleccionadaDisparo = document.getElementById("Casilla_Seleccionada_Show"); 
-        casillasRivales = document.querySelectorAll('[id*="TABLERO#1"]')
-        
-        botonDisparo.addEventListener('click', () => {
-            if (turnoJugador == false){
-                mostrarMensaje('Es turno del rival', 'info');
-            } else {             
-                if (casillaSeleccionadaDisparo.textContent.trim() === "") {
-                } else {
-                    console.log("Posicion enviada => ", String(casillaSeleccionadaDisparo.textContent) );
-                    mandarDisparo(String(casillaSeleccionadaDisparo.textContent));
-                }
-                
-            }
-            
-        });
-
-        casillasRivales.forEach(casilla => {
-            casilla.addEventListener("click", (e) => {
-                e.stopPropagation();
-                if (turnoJugador == false){
-                    mostrarMensaje('Es turno del rival', 'info');
-                } else {
-                    let fila = filaToLetra.indexOf(casilla.id[8]);
-                    let columna = parseInt(casilla.id[10])+1;
-                    casillaSeleccionadaDisparo.textContent = `${filaToLetra[fila]}${columna}`;
-
-                }
-            });
-        });
-    }
-}, 100); // Verificar cada 100 milisegundos */
-
-// Funcion para inicializar botonDisparo cuando se agregue al DOM
 const checkElement = setInterval(() => {
     botonDisparo = document.getElementById("Boton_Disparo");
     if (botonDisparo) {
@@ -261,10 +223,15 @@ const checkElement = setInterval(() => {
                 mostrarMensaje('Es turno del rival', 'info');
             } else {             
                 if (casillaSeleccionadaDisparo.textContent.trim() === "") {
-                    console.log("Casilla seleccionada está vacía");
+                    mostrarMensaje('Selecciona una casilla', 'info');
                 } else {
-                    console.log("Posicion enviada => ", String(casillaSeleccionadaDisparo.textContent));
-                    mandarDisparo(String(casillaSeleccionadaDisparo.textContent));
+                    let cas = document.getElementById(("Casilla_"+casillaSeleccionadaDisparo.textContent.charAt(0)+","+(casillaSeleccionadaDisparo.textContent.slice(1))+"_TABLERO#1"));
+                    if (cas.classList.contains("hit_space") || cas.classList.contains("water_space")) {
+                        mostrarMensaje('Ya has disparado a esta casilla', 'info');
+                    } else {
+                        console.log("Posicion enviada => ", String(casillaSeleccionadaDisparo.textContent));
+                        mandarDisparo(String(casillaSeleccionadaDisparo.textContent));
+                    }
                 }
             }
         });
