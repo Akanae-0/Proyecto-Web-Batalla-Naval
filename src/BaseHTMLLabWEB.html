@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es-VE">
+<!--Aarón Bastardo-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Test Aarón Bastardo - Batalla Naval</title>
+    <link rel="icon" type="image/x-icon" href="../assets/Icon_Tab_Lab.png">
+    <link rel="stylesheet" href="styles/EstiloBodyCSSLabWeb.css">
+    <link rel="stylesheet" href="styles/EstiloMainCSSLabWeb.css">
+    <link rel="stylesheet" href="styles/EstiloFooterCSSLabWeb.css">
+    <link rel="stylesheet" href="styles/EstiloNavCSSLabWeb.css">
+    <link rel="stylesheet" href="styles/EstiloMainCSS_media_under_550px.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="Barra_Superior">
+            <div class="Usuario_Juego_Botones">
+                <input type="text" id="Input_Nombre_Usuario"> <!--Username-->
+                <button id="Boton_Ingresar">Ingresar</button>
+                <p id="Nombre_Usuario">Default</p>
+                <button id="Boton_Jugar">Jugar</button>
+            </div>
+            <div id="Acceso_Directo_Instrucciones"><a href="#Contenido_Footer_Instrucciones_Titulo"
+                    id="Contenido_Footer_Instrucciones_Titulo_To_Footer">Instrucciones</a>
+            </div>
+        </nav>
+    </header>
+    <main id="Menu_Holder"></main>
+    <main id="Ventana_Principal_Juego">
+        
+        <section class="tableros" id="Seccion_Tableros">
+
+        </section>
+        <aside id="Aside">
+            <section id="Barcos_Lado"></section>
+            <section id="Botones_In_Game"></section>
+        </aside>
+    </main>
+    <footer>
+        <h2 id="Contenido_Footer_Instrucciones_Titulo">Instrucciones</h2>
+        <p id="Contenido_Footer_Texto">
+            <pre>
+            Login: Inserta un username no ocupado para iniciar sesión.
+
+            Objetivo: Hundir toda la flota enemiga antes de que el enemigo hunda la tuya.
+
+            Materiales:
+            
+            2 tableros de juego con coordenadas (letras y números)
+            5 barcos de diferentes tamaños para cada jugador (por ejemplo, portaaviones, crucero, destructor, submarino y patrullero)
+            
+            Preparación:
+            
+            Coloca los barcos: Cada jugador coloca sus barcos en secreto en su propio tablero. Los barcos deben colocarse horizontal o verticalmente, nunca en diagonal.
+            Busca un oponente: Presiona el botón "Jugar" para buscar un oponente.
+
+            Cómo jugar:
+            
+            Turnos alternativos: Los jugadores se turnan para "disparar" a los barcos del oponente.
+            Disparar: Un jugador clickea sobre la casilla del contrincante y llama una coordenada (por ejemplo, "A4") tratando de acertar uno de los barcos del oponente.
+
+            Resultados:
+            Acierto: Si el disparo impacta en un barco "HIT" se pinta la casilla de rojo en esa coordenada en el tablero.
+            Fallo: Si el disparo no impacta en ningún barco "MISS", se pinta la casilla de gris en esa coordenada en el tablero.
+            Hundir un barco: Cuando todas las casillas de un barco han sido acertadas, el barco queda hundido. Se revela qué barco ha sido hundido.
+            Ganador: El primer jugador en hundir toda la flota enemiga gana la partida.
+
+            Consejos:
+            
+            Estrategia: Al colocar tus barcos, trata de distribuirlos estratégicamente para dificultar que el oponente los encuentre todos de una vez.
+            Deducción: Utiliza los aciertos y fallos de tu oponente para deducir dónde pueden estar ubicados sus barcos.
+        </pre>
+    </p>
+    </footer>
+    
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script src="./scripts/Game_Load.js" type="module"></script>
+
+</html>
