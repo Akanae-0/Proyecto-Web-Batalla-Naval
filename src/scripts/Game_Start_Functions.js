@@ -1,6 +1,9 @@
 import { gameSection, gameButonSection, rows, columns } from "./Game_Load.js";
 import { filaToLetra } from "./Game_Load.js";
-import { botonDisparo, turnoJugador, rivalUser } from "..y/Game_Load.js";
+import { botonDisparo, turnoJugador, rivalUser } from "./Game_Load.js";
+import { mostrarMensaje } from "./Game_Load.js";
+import { restartAfterGame } from "./Game_Load.js";
+import { socket } from "./Game_Load.js";
 
 var casillaSeleccionada = 'Z0';
 var casillaSeleccionadaId = '';
@@ -10,7 +13,7 @@ function CrearTableroOponente() {
     let unidadTableroCreacion = document.createElement("section");
     unidadTableroCreacion.classList.add("Board_Unity");
 
-    gameBoardPlayerTitle = `${rivalUser}`;
+    let gameBoardPlayerTitle = `${rivalUser}`;
 
     unidadTableroCreacion.setAttribute('id', `TABLERO#1`);
     let idUnidadTablero = unidadTableroCreacion.id;
@@ -77,11 +80,11 @@ function CrearBotonDisparo(){
     casillaSeleccionada.style.fontWeight = "bold";
     casillaSeleccionada.style.backgroundColor = "white";
     gameButonSection.appendChild(casillaSeleccionada);
-    let botonDisparo = document.createElement("button");
-    botonDisparo.classList.add("boton_accion_juego");
-    botonDisparo.setAttribute("id", "Boton_Disparo");
-    botonDisparo.innerHTML = "Disparar";
-    gameButonSection.appendChild(botonDisparo);
+    let botonDisparoC = document.createElement("button");
+    botonDisparoC.classList.add("boton_accion_juego");
+    botonDisparoC.setAttribute("id", "Boton_Disparo");
+    botonDisparoC.innerHTML = "Disparar";
+    gameButonSection.appendChild(botonDisparoC);
 }
 
 function prepararCasillasOponente() {
@@ -115,20 +118,68 @@ function dispararCasillaOponente(){
             //showCasillaSeleccionada.innerHTML = "";
             
             // Aqui se debe enviar la casilla seleccionada al servidor
-            let hit = false;
-            let casillaImpacto = document.getElementById(casillaSeleccionadaId);
-            if (hit === true) {
-                // Marcar la casilla como disparada
-                casillaImpacto.classList.add("hit_space");
-            } else {
-                // Marcar la casilla como agua
-                casillaImpacto.classList.add("water_space");
-            }
+            socket.emit('play', {position: casillaSeleccionada, username: username});
         });
     } else return;
 }
 
+function searchCasilla(casilla, tablero){
+    let casillas = document.querySelectorAll(`.casilla`);
+    let casillaSeleccionada = '';
+    casillas.forEach(casilla => {
+        if (casilla.id === "Casilla_"+casilla.charAt(0)+","+(casilla.slice(1)-1)+"_TABLERO#"+tablero) {
+            casillaSeleccionada = casilla.id;
+        }
+    });
+    return casillaSeleccionada;
+}
+
+function modifyEstadoCasillaJugador(casilla, data){
+    if (data.hit === true) {
+        let casillaImpacto = document.getElementById(casilla);
+        let explosion = "../../assets/Explosion.png";
+        casillaImpacto.innerHTML = `<img src="${explosion}" alt="Explosion" class="parte-barco">`;
+        if (data.drown === true) {
+            mostrarMensaje('Barco hundido', 'warning');
+        }
+    }
+}
+
+function modifyEstadoCasillaOponente(casilla, data){
+    let casillaImpacto = document.getElementById(casilla);
+    if (data.hit === true) {
+        casillaImpacto.classList.add("hit_space");
+        if (data.drown === true) {
+            mostrarMensaje('Barco hundido', 'success');
+        }
+    } else {
+        casillaImpacto.classList.add("water_space");
+    }
+}
+
+socket.on ('play-result', (data) => {
+    let casillaAtacada = '';
+    if (data.username === username){
+        casillaAtacada = searchCasilla(data.position, 0);
+        modifyEstadoCasillaJugador(casillaAtacada, data);
+    }
+    else {
+        casillaAtacada = searchCasilla(data.position, 1);
+        modifyEstadoCasillaOponente(casillaAtacada, data);
+    }
+});
+
+socket.on ('finish', (data) => {
+    if (data.winner === username){
+        mostrarMensaje('Has ganado', 'success');
+    } else {
+        mostrarMensaje('Has perdido', 'warning');
+    }
+    restartAfterGame();
+});
+
 CrearTableroOponente();
 CrearBotonDisparo();
+botonDisparo = document.getElementById("Boton_Disparo");
 prepararCasillasOponente();
 dispararCasillaOponente();

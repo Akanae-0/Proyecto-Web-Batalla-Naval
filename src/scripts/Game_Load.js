@@ -7,9 +7,9 @@ const btnLogin = document.getElementById("Boton_Ingresar");
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
 const userNameCard = document.getElementById("Nombre_Usuario");
-let botonDisparo; 
-let casillaSeleccionadaDisparo; 
-let casillasRivales;
+var botonDisparo; 
+var casillaSeleccionadaDisparo; 
+var casillasRivales;
 
 
 // VARIABLES GLOBALES
@@ -242,7 +242,7 @@ const checkElement = setInterval(() => {
                     alert('Es turno del rival');
                 } else {
                     let fila = filaToLetra.indexOf(casilla.id[8]);
-                    let columna = parseInt(casilla.id[10]);
+                    let columna = parseInt(casilla.id[10])+1;
                     console.log(`${filaToLetra[fila]}${columna}`);
                     casillaSeleccionadaDisparo.textContent = `${filaToLetra[fila]}${columna}`;
                     console.log(casillaSeleccionadaDisparo.textContent)
@@ -254,7 +254,7 @@ const checkElement = setInterval(() => {
 }, 100); // Verificar cada 100 milisegundos
 
 // Reestablece el estado inicial de la pagina
-function restartAfterGame(){
+export function restartAfterGame(){
     username = "";
     loggeado = false;
     turnoJugador = false;
@@ -292,3 +292,4 @@ export { barcosJuego, shipsJugada};
 export { bodyDocumento, asideSection }; 
 export { gameSection, gameButonSection, rows, columns }; 
 export { botonDisparo, turnoJugador, rivalUser }; 
+export { socket };

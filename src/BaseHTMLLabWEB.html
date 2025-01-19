@@ -46,21 +46,42 @@
     </main>
     <footer>
         <h2 id="Contenido_Footer_Instrucciones_Titulo">Instrucciones</h2>
-        <p id="Contenido_Footer_Texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus, officia
-            repudiandae debitis, harum magni suscipit eaque unde obcaecati, quaerat modi libero enim inventore
-            reprehenderit ratione culpa necessitatibus rem et accusantium magnam! Minus sint aspernatur illum fugit?
-            Incidunt quisquam delectus molestias aliquam. Illo aliquam non commodi, accusamus iste quasi veniam corrupti
-            saepe, quaerat corporis perspiciatis nemo vel aspernatur inventore odit soluta iusto eum aliquid eius esse
-            quae debitis temporibus voluptates magni. Atque magni dolorum illo necessitatibus, nulla rerum velit,
-            adipisci odio possimus illum vel? Eligendi, commodi provident nostrum tempore iure alias. Reprehenderit
-            accusamus incidunt animi fuga magnam impedit eius voluptas illo. Nihil fuga aspernatur eius assumenda
-            accusamus, voluptatum non. Voluptatum unde, quaerat maxime, quidem modi fuga corporis ullam possimus
-            veritatis facere, doloremque nulla! Praesentium, provident sit laborum, quas quaerat harum aliquam doloribus
-            laboriosam quae velit nihil hic atque sequi? Velit nisi laudantium, adipisci asperiores ea unde molestiae
-            accusantium amet cumque ipsum.</p>
+        <p id="Contenido_Footer_Texto">
+            <pre>
+            Login: Inserta un username no ocupado para iniciar sesión.
+
+            Objetivo: Hundir toda la flota enemiga antes de que el enemigo hunda la tuya.
+
+            Materiales:
+            
+            2 tableros de juego con coordenadas (letras y números)
+            5 barcos de diferentes tamaños para cada jugador (por ejemplo, portaaviones, crucero, destructor, submarino y patrullero)
+            
+            Preparación:
+            
+            Coloca los barcos: Cada jugador coloca sus barcos en secreto en su propio tablero. Los barcos deben colocarse horizontal o verticalmente, nunca en diagonal.
+            Busca un oponente: Presiona el botón "Jugar" para buscar un oponente.
+
+            Cómo jugar:
+            
+            Turnos alternativos: Los jugadores se turnan para "disparar" a los barcos del oponente.
+            Disparar: Un jugador clickea sobre la casilla del contrincante y llama una coordenada (por ejemplo, "A4") tratando de acertar uno de los barcos del oponente.
+
+            Resultados:
+            Acierto: Si el disparo impacta en un barco "HIT" se pinta la casilla de rojo en esa coordenada en el tablero.
+            Fallo: Si el disparo no impacta en ningún barco "MISS", se pinta la casilla de gris en esa coordenada en el tablero.
+            Hundir un barco: Cuando todas las casillas de un barco han sido acertadas, el barco queda hundido. Se revela qué barco ha sido hundido.
+            Ganador: El primer jugador en hundir toda la flota enemiga gana la partida.
+
+            Consejos:
+            
+            Estrategia: Al colocar tus barcos, trata de distribuirlos estratégicamente para dificultar que el oponente los encuentre todos de una vez.
+            Deducción: Utiliza los aciertos y fallos de tu oponente para deducir dónde pueden estar ubicados sus barcos.
+        </pre>
+    </p>
     </footer>
     
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
-    <script src="/src/scripts/Game_Load.js" type="module"></script>
+    <script src="./scripts/Game_Load.js" type="module"></script>
 
 </html>
