@@ -105,9 +105,7 @@ socket.on('game-found', (rival) => {
    asideSection.style.display = "none";
    btnPlay.style.display = "none";
    let CargarJuegoJS = document.getElementById("CargarJuegoJS");
-   let DragScripts = document.getElementById("DraggableBoatsJS");
    if (CargarJuegoJS) CargarJuegoJS.remove();
-   if (DragScripts) DragScripts.remove();
    bodyDocumento.appendChild(EmpezarPartidaJS);
 });
 
