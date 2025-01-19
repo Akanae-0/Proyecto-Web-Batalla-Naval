@@ -146,7 +146,6 @@ function cargarBotonConfirmarPosisiones(){
     gameButonSection.appendChild(botonResetBarcos);
 }
 
-// ...
 function InsertarScriptMovimientoBarcos(){
     let DraggableBoatsJS = document.createElement("script");
     DraggableBoatsJS.src = "/src/scripts/Barcos_Drag_Function.js";

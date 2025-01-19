@@ -64,30 +64,31 @@ function CrearTableroOponente() {
 
 }
 
-function CrearBotonDisparo(){
+function HabilitarBotonDisparo(){
     gameButonSection.innerHTML = "";
     gameButonSection.style.width = "100%";
     gameButonSection.style.height = "auto";
     gameButonSection.style.display = "flex";
     gameButonSection.style.justifyContent = "center";
-    let casillaSeleccionada = document.createElement("div");
-    casillaSeleccionada.setAttribute("id", "Casilla_Seleccionada_Show");
-    casillaSeleccionada.style.border = "2px solid black";
-    casillaSeleccionada.style.width = "50px";
-    casillaSeleccionada.style.height = "50px";
-    casillaSeleccionada.style.textAlign = "center";
-    casillaSeleccionada.style.fontSize = "30px";
-    casillaSeleccionada.style.fontWeight = "bold";
-    casillaSeleccionada.style.backgroundColor = "white";
-    gameButonSection.appendChild(casillaSeleccionada);
+    let casillaSeleccionadaS = document.createElement("div");
+    casillaSeleccionadaS.setAttribute("id", "Casilla_Seleccionada_Show");
+    casillaSeleccionadaS.style.border = "2px solid black";
+    casillaSeleccionadaS.style.width = "50px";
+    casillaSeleccionadaS.style.height = "50px";
+    casillaSeleccionadaS.style.textAlign = "center";
+    casillaSeleccionadaS.style.fontSize = "30px";
+    casillaSeleccionadaS.style.fontWeight = "bold";
+    casillaSeleccionadaS.style.backgroundColor = "white";
+    gameButonSection.appendChild(casillaSeleccionadaS);
     let botonDisparoC = document.createElement("button");
     botonDisparoC.classList.add("boton_accion_juego");
     botonDisparoC.setAttribute("id", "Boton_Disparo");
     botonDisparoC.innerHTML = "Disparar";
     gameButonSection.appendChild(botonDisparoC);
+    console.log("Boton de disparo habilitado");
 }
 
-function prepararCasillasOponente() {
+/* function prepararCasillasOponente() {
     let casillas = document.querySelectorAll(`.casilla`);
     let showCasillaSeleccionada = document.getElementById("Casilla_Seleccionada_Show");
     casillas.forEach(casilla => {
@@ -107,21 +108,20 @@ function prepararCasillasOponente() {
             });
         }
     });
-}
+} */
 
-function dispararCasillaOponente(){
-    if (turnoJugador === true) {
+/* function dispararCasillaOponente(){
         let botonDisparo = document.getElementById("Boton_Disparo");
         botonDisparo.addEventListener("click", function(){
-            //console.log("Disparando a la casilla: " + casillaSeleccionada);
-            let showCasillaSeleccionada = document.getElementById("Casilla_Seleccionada_Show");
-            //showCasillaSeleccionada.innerHTML = "";
-            
-            // Aqui se debe enviar la casilla seleccionada al servidor
-            socket.emit('play', {position: casillaSeleccionada, username: username});
+            if (turnoJugador === false){
+                return;
+            } else {
+                let casillaDisparo = document.getElementById("Casilla_Seleccionada_Show").textContent;
+                socket.emit('play', {position: casillaDisparo});
+                console.log("Disparando a la casilla: " + casillaDisparo);
+            }
         });
-    } else return;
-}
+} */
 
 function searchCasilla(casilla, tablero){
     let casillas = document.querySelectorAll(`.casilla`);
@@ -179,7 +179,7 @@ socket.on ('finish', (data) => {
 });
 
 CrearTableroOponente();
-CrearBotonDisparo();
+HabilitarBotonDisparo();
 botonDisparo = document.getElementById("Boton_Disparo");
-prepararCasillasOponente();
-dispararCasillaOponente();
+//prepararCasillasOponente();
+//dispararCasillaOponente();

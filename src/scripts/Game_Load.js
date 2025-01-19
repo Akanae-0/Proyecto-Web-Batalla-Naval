@@ -202,6 +202,7 @@ btnPlay.addEventListener("click", async () => {
         if (barcosRestantes.length === 0){
             socket.emit('begin', shipsJugada);
             console.log("Jugada a enviar:", shipsJugada);
+            mostrarMensaje('Buscando partida', 'info');
         } else mostrarMensaje('Aun tienes barcos por colocar', 'warning');
     } else ((mostrarMensaje('Ya estas buscando partida', 'info')));
 });
@@ -216,18 +217,17 @@ const checkElement = setInterval(() => {
         
         botonDisparo.addEventListener('click', () => {
             if (turnoJugador == false){
-                alert('Es turno del rival');
+                mostrarMensaje('Es turno del rival', 'info');
             } else {
                 console.log("valor:", casillaSeleccionadaDisparo.textContent);
                 
-                if (casillaSeleccionadaDisparo.textContent === "") {
+                if (casillaSeleccionadaDisparo.textContent.trim() === "") {
                     console.log("vacio:", casillaSeleccionadaDisparo.textContent)
-                    //alert('Primero seleccione una casilla rival');
                 } else {
                     console.log("no vacio:", casillaSeleccionadaDisparo.textContent)
                     // logica del evento "play"
-                    // alert('Disparo enviado');
-
+                    socket.emit('play', {position: casillaSeleccionadaDisparo.textContent});
+                    console.log("Disparando a la casilla: " + casillaSeleccionadaDisparo.textContent);
                 }
                 
             }
@@ -239,7 +239,7 @@ const checkElement = setInterval(() => {
                 e.stopPropagation();
                 console.log("mi turno =", turnoJugador);
                 if (turnoJugador == false){
-                    alert('Es turno del rival');
+                    mostrarMensaje('Es turno del rival', 'info');
                 } else {
                     let fila = filaToLetra.indexOf(casilla.id[8]);
                     let columna = parseInt(casilla.id[10])+1;
