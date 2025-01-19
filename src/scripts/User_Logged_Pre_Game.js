@@ -1,6 +1,7 @@
 import { bodyDocumento, asideSection } from "./Game_Load.js";
 import { barcosJuego, shipsJugada } from "./Game_Load.js";
 import { gameSection, gameButonSection, rows, columns, filaToLetra} from "./Game_Load.js";
+import { cargarMovimientoBarcos } from "./Barcos_Drag_Function.js";
 
 // Crear tablero de juego
 var tableroCreadoEstado = false;
@@ -121,18 +122,13 @@ function cargarBotonConfirmarPosisiones(){
     botonResetBarcos.innerHTML = "Reordenar";
 
     botonResetBarcos.addEventListener("click", () =>{
-        shipsJugada = {
-            username: "",
-            ships: []
-        }
-        let DragScripts = document.getElementById("DraggableBoatsJS");
-        DragScripts.remove();
+        shipsJugada.username = "";
+        shipsJugada.ships = [];
         let casillasMarcadas = document.querySelectorAll(".ocupado");
         casillasMarcadas.forEach(element => {
             element.innerHTML = '';
             element.style.backgroundColor = "rgba(240, 248, 255, 0.75)";
             element.classList.remove("ocupado");
-            
         });
         let casillas = document.querySelectorAll(".casilla");
         casillas.forEach(casilla => {
@@ -147,12 +143,14 @@ function cargarBotonConfirmarPosisiones(){
 }
 
 function InsertarScriptMovimientoBarcos(){
-    let DraggableBoatsJS = document.createElement("script");
+    /* let DraggableBoatsJS = document.createElement("script");
     DraggableBoatsJS.src = "/src/scripts/Barcos_Drag_Function.js";
     DraggableBoatsJS.type = "module";
     DraggableBoatsJS.async = true;
     DraggableBoatsJS.setAttribute("id", "DraggableBoatsJS");
     bodyDocumento.appendChild(DraggableBoatsJS);
+    console.log("Script de movimiento de barcos insertado"); */
+    cargarMovimientoBarcos();
 }
 
 if (tableroCreadoEstado === false) {

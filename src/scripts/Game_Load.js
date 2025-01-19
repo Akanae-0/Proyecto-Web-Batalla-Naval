@@ -197,9 +197,9 @@ btnLogin.addEventListener("click", async () => {
 //Evento click en Jugar
 btnPlay.addEventListener("click", async () => {
     if (gameSeaching === false) {
-        gameSeaching = true;
         let barcosRestantes = document.querySelectorAll(".Barco");
         if (barcosRestantes.length === 0){
+            gameSeaching = true;
             socket.emit('begin', shipsJugada);
             console.log("Jugada a enviar:", shipsJugada);
             mostrarMensaje('Buscando partida', 'info');

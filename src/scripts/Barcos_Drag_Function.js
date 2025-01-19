@@ -18,6 +18,7 @@ export function hacerBarcosArrastrables() {
                 spaces: parseInt(barco.dataset.spaces, 10),
                 orientation: barco.dataset.orientation
             }));
+            console.log("Barco arrastrado: ", barco.dataset);
             barco.classList.add("dragging");
         });
 
@@ -25,6 +26,8 @@ export function hacerBarcosArrastrables() {
         barco.addEventListener("dragend", () => {
             barco.classList.remove("dragging");
         });
+
+        console.log("Barco cargado: " + barco.dataset.name);
     });
 }
 
@@ -204,5 +207,9 @@ export function colocarBarco(casillaInicial, datosBarco, direccion) {
     });
 }
 
-hacerBarcosArrastrables();
-configurarTableroDragAndDrop();
+export function cargarMovimientoBarcos(){
+    hacerBarcosArrastrables();
+    configurarTableroDragAndDrop();
+}
+
+    
