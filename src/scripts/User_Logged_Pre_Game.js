@@ -122,7 +122,7 @@ function cargarBotonConfirmarPosisiones(){
     botonResetBarcos.innerHTML = "Reordenar";
 
     botonResetBarcos.addEventListener("click", () =>{
-        shipsJugada.username = "";
+        //shipsJugada.username = "";
         shipsJugada.ships = [];
         let casillasMarcadas = document.querySelectorAll(".ocupado");
         casillasMarcadas.forEach(element => {
@@ -137,27 +137,26 @@ function cargarBotonConfirmarPosisiones(){
         })
         asideSection.innerHTML = '';
         CargarBarcos();
-        InsertarScriptMovimientoBarcos();
+        cargarMovimientoBarcos();
     })
     gameButonSection.appendChild(botonResetBarcos);
 }
 
-function InsertarScriptMovimientoBarcos(){
-    /* let DraggableBoatsJS = document.createElement("script");
-    DraggableBoatsJS.src = "/src/scripts/Barcos_Drag_Function.js";
+/* function InsertarScriptMovimientoBarcos(){
+    let DraggableBoatsJS = document.createElement("script");
+    DraggableBoatsJS.src = "./src/scripts/Barcos_Drag_Function.js";
     DraggableBoatsJS.type = "module";
     DraggableBoatsJS.async = true;
     DraggableBoatsJS.setAttribute("id", "DraggableBoatsJS");
     bodyDocumento.appendChild(DraggableBoatsJS);
-    console.log("Script de movimiento de barcos insertado"); */
     cargarMovimientoBarcos();
-}
+} */
 
 if (tableroCreadoEstado === false) {
     CrearTableroJugador();
     CargarBarcos();
     cargarBotonesBarcos();
     cargarBotonConfirmarPosisiones();
-    InsertarScriptMovimientoBarcos();
+    cargarMovimientoBarcos();
     tableroCreadoEstado = true;
 }
