@@ -16,15 +16,15 @@ body {
     text-align: center;
 }
 .container {
-    background-image: url('/assets/fondo.png'); /* Reemplaza con la ruta de tu imagen */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-    background-position: center; /* Centra la imagen */
+    background-image: url('../../assets/fondo.png'); 
+    background-size: cover;        /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center;  /* Centra la imagen */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
-    height: 100vh; /* Altura del contenedor al 100% de la ventana */
-    color: white; /* Color del texto */
-    display: flex; /* Usar flexbox para centrar el contenido */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    height: 100vh; 
+    color: white; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
     
 }
 img {

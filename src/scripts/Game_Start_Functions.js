@@ -83,8 +83,9 @@ function HabilitarBotonDisparo(){
     gameButonSection.appendChild(casillaSeleccionadaS);
     let botonDisparoC = document.createElement("button");
     botonDisparoC.classList.add("boton_accion_juego");
+    botonDisparoC.classList.add("botones");
     botonDisparoC.setAttribute("id", "Boton_Disparo");
-    botonDisparoC.innerHTML = "Disparar";
+    botonDisparoC.innerHTML = "DISPARAR";
     gameButonSection.appendChild(botonDisparoC);
 }
 

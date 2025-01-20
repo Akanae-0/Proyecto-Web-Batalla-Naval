@@ -11,7 +11,7 @@ function CrearTableroJugador() {
     let unidadTableroCreacion = document.createElement("section");
     unidadTableroCreacion.classList.add("Board_Unity");
 
-    let gameBoardPlayerTitle = "JUGADOR";
+    let gameBoardPlayerTitle = "MI TABLERO";
 
     unidadTableroCreacion.setAttribute('id', `TABLERO#0`);
     let idUnidadTablero = unidadTableroCreacion.id;
@@ -86,9 +86,10 @@ function cargarBotonesBarcos(){
     let botonRotarBarcos = document.createElement("button");
     botonRotarBarcos.setAttribute("id", "Boton_Rotar_Barcos");
     botonRotarBarcos.innerHTML = `
-        (horizontal)<br>
-        Rotar`;
+        &nbsp;ROTAR<br>
+        (horizontal)`;
     botonRotarBarcos.classList.add("boton_accion_juego");
+    botonRotarBarcos.classList.add("botones");
 
     botonRotarBarcos.addEventListener("click", () => {
         let barcosA = document.getElementsByClassName('contenedorBarco');
@@ -98,14 +99,14 @@ function cargarBotonesBarcos(){
             if (barcosA[i].dataset.orientation === "horizontal") {
                 orientacion = "vertical";
                 botonRotarBarcos.innerHTML = `
-                    (vertical)<br>
-                    Rotar`
+                    &nbsp;ROTAR<br>
+                    (vertical)`;
             }
             else {
                 orientacion = "horizontal";
                 botonRotarBarcos.innerHTML = `
-                    (horizontal)<br>
-                    Rotar`
+                    &nbsp;ROTAR<br>
+                    (horizontal)`;
             }
             barcosA[i].setAttribute("data-orientation", orientacion);
             barcosB[i].setAttribute("orientation", orientacion);
@@ -119,7 +120,8 @@ function cargarBotonConfirmarPosisiones(){
     let botonResetBarcos = document.createElement("button");
     botonResetBarcos.setAttribute("id", "Reset_Barcos");
     botonResetBarcos.classList.add("boton_accion_juego");
-    botonResetBarcos.innerHTML = "Reordenar";
+    botonResetBarcos.innerHTML = "REORDENAR";
+    botonResetBarcos.classList.add("botones");
 
     botonResetBarcos.addEventListener("click", () =>{
         //shipsJugada.username = "";

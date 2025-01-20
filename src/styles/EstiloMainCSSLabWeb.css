@@ -20,9 +20,10 @@
 }
 /*Need js to work around ships size relative to board*/
 #Barcos_Lado{
-    background-color: rgb(184, 164, 164, 90%);
+    background-color: #C0C0C0;
     flex: 1;
     margin-left: 0;
+    width: 100%;
     min-width: 180px;
     height: auto;
 }
@@ -61,7 +62,7 @@
 }
 #Botones_In_Game{
     min-width: 180px;
-    background-color: rgb(204, 193, 219);
+    background-color: #708090;
     min-height: 100px;
     display: flex;
     justify-content: center;
@@ -167,4 +168,62 @@
 .vertical {
     transform: rotate(90deg);  /* Rota la imagen 90 grados */
     transform-origin: center;  /* Asegura que la rotación se haga desde el centro */
+}
+
+.botones {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #D4AF37;
+    border: none;
+    border-radius: 15px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 900;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.botones:hover {
+    background-color: #B8860B;
+    transform: scale(1.03);
+}
+
+.botones:active {
+    background-color: #FFDF00;
+    transform: scale(0.95);
+}
+
+.botones:disabled {
+    background-color: #A9A9A9;
+    cursor: not-allowed;
+}
+
+#Boton_Rotar_Barcos, #Reset_Barcos {
+    height: 60%;
+    width: 50%; 
+}
+
+#Casilla_Seleccionada_Show{
+    border-radius: 15px;
+}
+
+.Board_Title_Card {
+    background-color: #D4AF37;
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.Board_Title_Card:hover {
+    background-color: #B8860B;
+    transform: scale(1.03);
 }

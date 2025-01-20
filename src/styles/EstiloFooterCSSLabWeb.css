@@ -1,5 +1,5 @@
-footer {
-    position:relative;
+#myFooter {
+    margin-top: 100vh;
     vertical-align: bottom;
     bottom: 0;
     width: 100%;
@@ -12,5 +12,5 @@ footer {
 }
 #Contenido_Footer_Texto{
     font-size: 0.8rem;
-    text-align:justify;
+    text-align: justify;
 }

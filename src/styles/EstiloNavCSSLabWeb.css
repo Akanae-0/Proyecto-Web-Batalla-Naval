@@ -6,7 +6,7 @@ nav {
 .Barra_Superior {
     display: flex;
     flex-direction: row;
-    background-color: rgb(28, 108, 228);
+    background-color: #708090;
     width: 100%;
     min-width: 300px;
     height: 7.5vh;
@@ -27,44 +27,43 @@ nav {
     flex: 1;
     width: 90%;
     min-width: 25px;
+    background-color: white;
+    border: none;
+    border-radius: 20px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: text;
+    transition: background-color 0.3s, transform 0.3s;
+    box-sizing: border-box;
 }
+
+#Input_Nombre_Usuario:focus {
+    background-color: white;
+    transform: scale(1.02);
+    outline: none;
+}
+
+#Input_Nombre_Usuario:active {
+    background-color: white;
+    transform: scale(0.5);
+}
+
 #Nombre_Usuario{
     display: none;
-    color: rgb(233, 121, 255);
+    color: black(233, 121, 255);
     max-width: 200px;
     min-width: auto;
     font-weight: bold;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: large;
+    font-style: italic;
 }
-#Boton_Ingresar {
-    width: 100px;
-    height: 25px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin-left: 5px;
-}
-#Boton_Ingresar:hover{
-    background-color: rgba(233, 144, 41, 100%);
-    color: white;
-}
-#Boton_Jugar {
-    width: 100px;
-    height: 25px;
-    font-weight: bold;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    margin-left: 5px;
-    margin-top: 15px;
-    display: none;
-}
-#Boton_Jugar:hover{
-    background-color: rgba(233, 144, 41, 100%);
-    color: white;
-}
+
 #Acceso_Directo_Instrucciones {
     flex: 1;
     text-align: end;
@@ -76,7 +75,8 @@ nav {
     text-decoration: none;
 }
 #Contenido_Footer_Instrucciones_Titulo_To_Footer:visited {
-    color: pink;
+    color: black;
+    font-weight: bolder;
     background-color: transparent;
     text-decoration: none;
 }

@@ -9,6 +9,7 @@ const myFooter = document.getElementById('myFooter');
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
 const userNameCard = document.getElementById("Nombre_Usuario");
+const instruccionesRedirect = document.getElementById("Contenido_Footer_Instrucciones_Titulo_To_Footer");
 let botonDisparo; 
 var casillaSeleccionadaDisparo; 
 var casillasRivales;
@@ -103,6 +104,7 @@ socket.on('game-found', (rival) => {
    EmpezarPartidaJS.setAttribute("id", "EmpezarPartidaJS");
    asideSection.style.display = "none";
    btnPlay.style.display = "none";
+   instruccionesRedirect.style.display = "none";
    let CargarJuegoJS = document.getElementById("CargarJuegoJS");
    if (CargarJuegoJS) CargarJuegoJS.remove();
    bodyDocumento.appendChild(EmpezarPartidaJS);
@@ -273,8 +275,6 @@ export function restartAfterGame(){
     VentanaJuego.style.display = "none";
     let MenuHolder = document.getElementById("Menu_Holder");
     MenuHolder.style.display = "block";
-    btnPlay.style.display = "none";
-    btnLogin.disabled = false;
     asideSection.innerHTML = "";
     gameButonSection.innerHTML = "";
     gameSection.innerHTML = "";
