@@ -76,7 +76,7 @@ const barcosJuego = [
 
 
 //AQUI COLOCAMOS EL PUERTO DEL SOCKET EN EL FRONT
-const socket = io("http://localhost:3000");
+const socket = io("https://program-web-16941-server-production.up.railway.app/");
 
 /* MANEJO DE EVENTOS DEL SOCKET */
 
@@ -272,9 +272,11 @@ export function restartAfterGame(){
     shipsJugada.username = "";
     shipsJugada.ships = [];
     let VentanaJuego = document.getElementById("Ventana_Principal_Juego");
+    btnPlay.style.display = "block"; 
     VentanaJuego.style.display = "none";
     let MenuHolder = document.getElementById("Menu_Holder");
     MenuHolder.style.display = "block";
+    btnLogin.disabled = false;
     asideSection.innerHTML = "";
     gameButonSection.innerHTML = "";
     gameSection.innerHTML = "";
