@@ -88,39 +88,6 @@ function HabilitarBotonDisparo(){
     gameButonSection.appendChild(botonDisparoC);
 }
 
-/* function prepararCasillasOponente() {
-    let casillas = document.querySelectorAll(`.casilla`);
-    let showCasillaSeleccionada = document.getElementById("Casilla_Seleccionada_Show");
-    casillas.forEach(casilla => {
-        if (casilla.id[20] === "1") {
-            casilla.addEventListener('click', function() {
-                if (turnoJugador === false) return;
-                else {
-                    if (this.classList.contains("hit_space") || this.classList.contains("water_space")) return;
-                    else {
-                        let casillaNumero = casilla.id[10] - 1 + 2;
-                        //casillaSeleccionada = '' + casilla.id[8] + casillaNumero;
-                        //casillaSeleccionadaId = casilla.id;
-                        //showCasillaSeleccionada.innerHTML = casillaSeleccionada; // Marcar la casilla con una "X"
-                    }
-                }
-            });
-        }
-    });
-} */
-
-/* function dispararCasillaOponente(){
-        let botonDisparo = document.getElementById("Boton_Disparo");
-        botonDisparo.addEventListener("click", function(){
-            if (turnoJugador === false){
-                return;
-            } else {
-                let casillaDisparo = document.getElementById("Casilla_Seleccionada_Show").textContent;
-                socket.emit('play', {position: casillaDisparo});
-            }
-        });
-} */
-
 // Funcion para buscar un elemento casilla recibiendo su codigo y # de tablero
 function searchCasilla(casillaBuscar, tablero){
     let casillas = document.querySelectorAll(`.casilla`);
@@ -139,6 +106,7 @@ function modifyEstadoCasillaJugador(casilla, data){
     if (data.hit === true || data.drown === true) {
         let explosion = "../assets/Explosion_Icon.png";
         casillaImpacto.innerHTML = `<img src="${explosion}" alt="Explosion" class="parte-barco">`;
+        mostrarMensaje('HIT!', 'warning');
         if (data.drown === true) {
             mostrarMensaje('Barco hundido', 'warning');
         }
@@ -152,11 +120,13 @@ function modifyEstadoCasillaOponente(casilla, data){
     let casillaImpacto = document.getElementById(casilla);
     if (data.hit === true || data.drown === true) {
         casillaImpacto.classList.add("hit_space");
+        mostrarMensaje('HIT!', 'info');
         if (data.drown === true) {
             mostrarMensaje('Barco hundido', 'success');
         }
     } else {
         casillaImpacto.classList.add("water_space");
+        mostrarMensaje('Agua...', 'info');
     }
 }
 
@@ -183,6 +153,3 @@ socket.on ('finish', (data) => {
 
 CrearTableroOponente();
 HabilitarBotonDisparo();
-//botonDisparo = document.getElementById("Boton_Disparo");
-//prepararCasillasOponente();
-//dispararCasillaOponente();

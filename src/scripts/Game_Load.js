@@ -4,6 +4,8 @@ const gameSection = document.getElementById("Seccion_Tableros");
 const asideSection = document.getElementById("Barcos_Lado");  
 const gameButonSection = document.getElementById("Botones_In_Game"); 
 const btnLogin = document.getElementById("Boton_Ingresar");
+const myContainer = document.getElementById('myContainer');
+const myFooter = document.getElementById('myFooter');
 const textoIngresarUsuario = document.getElementById("Input_Nombre_Usuario");
 const btnPlay = document.getElementById("Boton_Jugar");
 const userNameCard = document.getElementById("Nombre_Usuario");
@@ -92,6 +94,7 @@ socket.on('error', (error) => {
 
 socket.on('game-found', (rival) => {    
    // GAME FOUND
+   mostrarMensaje('Partida Encontrada', 'info');
    rivalUser = rival.oponnent;
    let EmpezarPartidaJS = document.createElement("script");
    EmpezarPartidaJS.src = "./scripts/Game_Start_Functions.js";
@@ -191,6 +194,9 @@ btnLogin.addEventListener("click", async (event) => {
             CargarJuegoJS.setAttribute("id", "CargarJuegoJS");
             bodyDocumento.appendChild(CargarJuegoJS);
             btnLogin.disabled = true;
+            // Cambiar el estilo del contenedor para ocultarlo
+            myContainer.style.display = 'none';
+            myFooter.style.display = 'none';
         }
     } catch (error) {
         console.error("An error occurred during login:", error);
@@ -211,44 +217,6 @@ btnPlay.addEventListener("click", async () => {
 });
 
 // Funcion para inicializar botonDisparo cuando se agregue al DOM
-/*const checkElement = setInterval(() => {
-    botonDisparo = document.getElementById("Boton_Disparo");
-    if (botonDisparo) {
-        clearInterval(checkElement); // Detener el intervalo una vez que se encuentra el elemento
-        casillaSeleccionadaDisparo = document.getElementById("Casilla_Seleccionada_Show"); 
-        casillasRivales = document.querySelectorAll('[id*="TABLERO#1"]')
-        
-        botonDisparo.addEventListener('click', () => {
-            if (turnoJugador == false){
-                mostrarMensaje('Es turno del rival', 'info');
-            } else {             
-                if (casillaSeleccionadaDisparo.textContent.trim() === "") {
-                } else {
-                    console.log("Posicion enviada => ", String(casillaSeleccionadaDisparo.textContent) );
-                    mandarDisparo(String(casillaSeleccionadaDisparo.textContent));
-                }
-                
-            }
-            
-        });
-
-        casillasRivales.forEach(casilla => {
-            casilla.addEventListener("click", (e) => {
-                e.stopPropagation();
-                if (turnoJugador == false){
-                    mostrarMensaje('Es turno del rival', 'info');
-                } else {
-                    let fila = filaToLetra.indexOf(casilla.id[8]);
-                    let columna = parseInt(casilla.id[10])+1;
-                    casillaSeleccionadaDisparo.textContent = `${filaToLetra[fila]}${columna}`;
-
-                }
-            });
-        });
-    }
-}, 100); // Verificar cada 100 milisegundos */
-
-// Funcion para inicializar botonDisparo cuando se agregue al DOM
 const checkElement = setInterval(() => {
     botonDisparo = document.getElementById("Boton_Disparo");
     if (botonDisparo) {
@@ -261,10 +229,16 @@ const checkElement = setInterval(() => {
                 mostrarMensaje('Es turno del rival', 'info');
             } else {             
                 if (casillaSeleccionadaDisparo.textContent.trim() === "") {
-                    console.log("Casilla seleccionada está vacía");
+                    mostrarMensaje('Seleccione una casilla', 'info');
                 } else {
-                    console.log("Posicion enviada => ", String(casillaSeleccionadaDisparo.textContent));
-                    mandarDisparo(String(casillaSeleccionadaDisparo.textContent));
+                    let coordNum = casillaSeleccionadaDisparo.textContent.slice(1);
+                    let casillaAtacada = document.getElementById("Casilla_"+casillaSeleccionadaDisparo.textContent.charAt(0)+","+(coordNum-1)+"_TABLERO#1")
+                    if ((casillaAtacada.classList.contains("hit_space") === true)||(casillaAtacada.classList.contains("water_space"))){
+                        mostrarMensaje('Seleccione una casilla sin atacar', 'info');
+                    } else {
+                        console.log("Posicion enviada => ", String(casillaSeleccionadaDisparo.textContent));
+                        mandarDisparo(String(casillaSeleccionadaDisparo.textContent));
+                    }
                 }
             }
         });
@@ -306,13 +280,15 @@ export function restartAfterGame(){
     gameSection.innerHTML = "";
     let nombreUsuario = document.getElementById("Input_Nombre_Usuario");
     nombreUsuario.value = "";
+    myContainer.style.display = 'flex';
+    myFooter.style.display = 'block';
 }
 
 export function mostrarMensaje(mensaje, icono) {
     Swal.fire({
       title: "Mensaje",
       text: mensaje,
-      icon: "info", // Cambia 'info' por 'success', 'error', 'warning', o 'question'
+      icon: icono, // Cambia 'info' por 'success', 'error', 'warning', o 'question'
       confirmButtonText: "Aceptar",
     });
 }

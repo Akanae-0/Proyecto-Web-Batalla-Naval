@@ -33,6 +33,9 @@
             </div>
         </nav>
     </header>
+    <div class="container" id="myContainer">
+        <img src="/assets/Battleship_naval_game_logo.png" alt="img">
+    </div>
     <main id="Menu_Holder"></main>
     <main id="Ventana_Principal_Juego">
         
@@ -44,41 +47,42 @@
             <section id="Botones_In_Game"></section>
         </aside>
     </main>
-    <footer>
+    <footer id="myFooter">
         <h2 id="Contenido_Footer_Instrucciones_Titulo">Instrucciones</h2>
-        <p id="Contenido_Footer_Texto">
-            <pre>
+        <p id="Contenido_Footer_Texto" style="text-align: center;">
             Login: Inserta un username no ocupado para iniciar sesión.
-
+            <br>
             Objetivo: Hundir toda la flota enemiga antes de que el enemigo hunda la tuya.
-
+            <br>
             Materiales:
-            
+            <br>
             2 tableros de juego con coordenadas (letras y números)
             5 barcos de diferentes tamaños para cada jugador (por ejemplo, portaaviones, crucero, destructor, submarino y patrullero)
-            
+            <br>
             Preparación:
-            
-            Coloca los barcos: Cada jugador coloca sus barcos en secreto en su propio tablero. Los barcos deben colocarse horizontal o verticalmente, nunca en diagonal.
-            Busca un oponente: Presiona el botón "Jugar" para buscar un oponente.
-
+            <br>
+            Coloca los barcos: Cada jugador coloca sus barcos en secreto en su propio tablero. Los barcos deben colocarse horizontal 
+            o verticalmente, nunca en diagonal.Busca un oponente: Presiona el botón "Jugar" para buscar un oponente.
+            <br>
             Cómo jugar:
-            
+            <br>
             Turnos alternativos: Los jugadores se turnan para "disparar" a los barcos del oponente.
-            Disparar: Un jugador clickea sobre la casilla del contrincante y llama una coordenada (por ejemplo, "A4") tratando de acertar uno de los barcos del oponente.
-
+            Disparar: Un jugador clickea sobre la casilla del contrincante y llama una coordenada (por ejemplo, "A4") tratando de 
+            acertar uno de los barcos del oponente.
+            <br>
             Resultados:
             Acierto: Si el disparo impacta en un barco "HIT" se pinta la casilla de rojo en esa coordenada en el tablero.
             Fallo: Si el disparo no impacta en ningún barco "MISS", se pinta la casilla de gris en esa coordenada en el tablero.
-            Hundir un barco: Cuando todas las casillas de un barco han sido acertadas, el barco queda hundido. Se revela qué barco ha sido hundido.
+            Hundir un barco: Cuando todas las casillas de un barco han sido acertadas, el barco queda hundido. Se revela qué barco ha 
+            sido hundido.
             Ganador: El primer jugador en hundir toda la flota enemiga gana la partida.
-
+            <br>
             Consejos:
-            
-            Estrategia: Al colocar tus barcos, trata de distribuirlos estratégicamente para dificultar que el oponente los encuentre todos de una vez.
+            <br>
+            Estrategia: Al colocar tus barcos, trata de distribuirlos estratégicamente para dificultar que el oponente los encuentre 
+            todos de una vez.
             Deducción: Utiliza los aciertos y fallos de tu oponente para deducir dónde pueden estar ubicados sus barcos.
-        </pre>
-    </p>
+        </p>
     </footer>
     
     <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
